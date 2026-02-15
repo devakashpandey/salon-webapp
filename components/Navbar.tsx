@@ -87,9 +87,9 @@ export default function Navbar() {
                             </Button>
                         </SheetTrigger>
                         <SheetContent side="right" className="bg-background border-l border-border w-full sm:max-w-md p-0">
-                            <div className="flex flex-col h-full bg-card/30 backdrop-blur-xl">
-                                <div className="p-8 pb-4">
-                                    <header className="flex items-center justify-between mb-8">
+                            <div className="flex flex-col h-full bg-card/30 backdrop-blur-xl overflow-y-auto">
+                                <div className="p-6 pb-4">
+                                    <header className="flex items-center justify-between mb-6">
                                         <div className="flex items-center gap-3">
                                             <div className="w-10 h-10 rounded-full bg-linear-to-br from-primary to-gold-dark flex items-center justify-center">
                                                 <Scissors className="w-5 h-5 text-primary-foreground" />
@@ -100,12 +100,12 @@ export default function Navbar() {
                                     <Separator className="bg-border/50" />
                                 </div>
 
-                                <nav className="flex-1 px-8 py-4 flex flex-col gap-2">
+                                <nav className="flex-1 px-6 py-2 flex flex-col gap-1">
                                     {navLinks.map((link) => (
                                         <a
                                             key={link.label}
                                             href={link.href}
-                                            className="group flex items-center justify-between py-4 text-lg font-display text-foreground hover:text-primary border-b border-border/50 transition-all"
+                                            className="group flex items-center justify-between py-3 text-lg font-display text-foreground hover:text-primary border-b border-border/50 transition-all"
                                         >
                                             {link.label}
                                             <ChevronRight className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0" />
@@ -113,7 +113,7 @@ export default function Navbar() {
                                     ))}
                                 </nav>
 
-                                <div className="p-8 space-y-6">
+                                <div className="p-6 space-y-6">
                                     <div className="space-y-4">
                                         <Badge variant="outline" className="text-xs tracking-widest uppercase py-1 border-primary/20 text-primary">Need Help?</Badge>
                                         <p className="text-sm text-muted-foreground leading-relaxed">

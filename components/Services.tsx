@@ -144,14 +144,14 @@ export default function Services() {
                 {/* Service Tabs */}
                 <Tabs defaultValue="hair" className="w-full" onValueChange={setActiveTab}>
                     <div className="flex justify-center mb-10">
-                        <TabsList className="flex flex-wrap h-auto p-1 bg-secondary/50 border border-border/50 rounded-full gap-1">
+                        <TabsList className="flex flex-wrap h-auto p-2 bg-secondary/50 border border-primary/10 rounded-3xl gap-2">
                             {services.map((service) => {
                                 const Icon = service.icon;
                                 return (
                                     <TabsTrigger
                                         key={service.id}
                                         value={service.id}
-                                        className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-lg bg-transparent text-muted-foreground hover:text-primary rounded-full px-6 py-3 text-sm font-bold tracking-wide transition-all duration-300 cursor-pointer flex items-center gap-2"
+                                        className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-xl bg-transparent text-muted-foreground hover:text-primary rounded-2xl px-6 py-3 text-sm font-black tracking-wide transition-all duration-300 cursor-pointer flex items-center gap-2"
                                     >
                                         <Icon className="w-4 h-4" />
                                         <span className="hidden sm:inline">{service.title}</span>
@@ -168,7 +168,7 @@ export default function Services() {
                                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                                     {/* Image Side */}
                                     <div className="relative group">
-                                        <div className="relative aspect-4/3 rounded-4xl overflow-hidden shadow-2xl transition-all duration-500 group-hover:shadow-[0_20px_50px_rgba(196,160,93,0.3)]">
+                                        <div className="relative aspect-4/3 rounded-[3rem] overflow-hidden shadow-2xl transition-all duration-500 group-hover:shadow-[0_20px_50px_rgba(0,201,167,0.3)] border-8 border-white dark:border-white/5">
                                             <Image
                                                 src={service.image}
                                                 alt={service.title}
@@ -176,33 +176,30 @@ export default function Services() {
                                                 className="object-cover transition-transform duration-700 group-hover:scale-110"
                                                 sizes="(max-width: 768px) 100vw, 50vw"
                                             />
-                                            <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent opacity-60" />
+                                            <div className="absolute inset-0 bg-linear-to-t from-background/80 via-transparent to-transparent opacity-40" />
 
                                             {/* Floating Price Badge */}
-                                            <Card className="absolute bottom-8 left-8 bg-background/90 backdrop-blur-xl border-primary/20 rounded-2xl p-5 shadow-2xl">
-                                                <span className="text-xs text-muted-foreground block uppercase tracking-widest font-bold mb-1">Starting from</span>
-                                                <span className="text-3xl font-display font-bold text-primary">
+                                            <Card className="absolute bottom-8 left-8 bg-white/90 dark:bg-card/90 backdrop-blur-xl border-primary/20 rounded-3xl p-6 shadow-2xl">
+                                                <span className="text-[10px] text-muted-foreground block uppercase tracking-widest font-black mb-1">Starting from</span>
+                                                <span className="text-3xl font-display font-black text-primary">
                                                     {service.startingPrice}
                                                 </span>
                                             </Card>
                                         </div>
-                                        {/* Decorative Frame */}
-                                        <div className="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-primary/40 rounded-tl-3xl -z-10" />
-                                        <div className="absolute -bottom-4 -right-4 w-24 h-24 border-b-2 border-r-2 border-primary/40 rounded-br-3xl -z-10" />
                                     </div>
 
                                     {/* Content Side */}
                                     <div className="flex flex-col items-start text-left">
-                                        <Badge variant="outline" className="mb-6 rounded-full px-5 py-2 border-primary/20 bg-primary/5 text-primary text-xs tracking-widest uppercase font-bold flex items-center gap-2">
+                                        <Badge variant="outline" className="mb-6 rounded-full px-5 py-2 border-primary/20 bg-primary/10 text-primary text-xs tracking-widest uppercase font-black flex items-center gap-2">
                                             <Icon className="w-4 h-4" />
                                             {service.subtitle}
                                         </Badge>
 
-                                        <h3 className="font-display text-4xl md:text-5xl font-bold mb-6">
+                                        <h3 className="font-display text-4xl md:text-5xl font-black mb-6">
                                             {service.title}
                                         </h3>
 
-                                        <p className="text-muted-foreground text-lg md:text-xl leading-relaxed mb-10 font-medium">
+                                        <p className="text-muted-foreground text-lg md:text-xl leading-relaxed mb-10 font-bold">
                                             {service.description}
                                         </p>
 
@@ -210,21 +207,21 @@ export default function Services() {
                                         <div className="grid sm:grid-cols-2 gap-y-4 gap-x-8 mb-12 w-full">
                                             {service.features.map((feature, i) => (
                                                 <div key={i} className="flex items-center gap-4 group">
-                                                    <div className="w-2 h-2 rounded-full bg-primary group-hover:scale-150 transition-transform" />
-                                                    <span className="text-foreground/90 font-semibold text-base">{feature}</span>
+                                                    <div className="w-3 h-3 rounded-full bg-brand-teal group-hover:scale-150 transition-transform shadow-sm" />
+                                                    <span className="text-foreground/90 font-black text-base">{feature}</span>
                                                 </div>
                                             ))}
                                         </div>
 
                                         <div className="flex flex-wrap gap-5 w-full">
-                                            <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-none tracking-widest uppercase text-xs font-black px-10 h-16 shadow-[0_10px_30px_rgb(var(--primary)/0.3)] flex-1 sm:flex-none">
+                                            <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-2xl tracking-widest uppercase text-xs font-black px-10 h-16 shadow-[0_10px_30px_rgba(0,201,167,0.3)] flex-1 sm:flex-none">
                                                 <a href="#booking">
-                                                    Book This Service
+                                                    Get The Look
                                                     <ArrowRight className="w-4 h-4 ml-2" />
                                                 </a>
                                             </Button>
-                                            <Button asChild size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-none tracking-widest uppercase text-xs font-black px-10 h-16 flex-1 sm:flex-none">
-                                                <a href="#pricing">View Full Pricing</a>
+                                            <Button asChild size="lg" variant="outline" className="border-primary/20 text-primary hover:bg-primary/5 rounded-2xl tracking-widest uppercase text-xs font-black px-10 h-16 flex-1 sm:flex-none">
+                                                <a href="#pricing">Full Price List</a>
                                             </Button>
                                         </div>
                                     </div>
@@ -245,19 +242,19 @@ export default function Services() {
                         return (
                             <Card
                                 key={service.id}
-                                className={`relative rounded-2xl p-6 text-center cursor-pointer transition-all duration-500 overflow-hidden group border-border shadow-none ${activeTab === service.id ? "bg-primary/5 border-primary/40 ring-1 ring-primary/20" : "bg-card/50 hover:bg-card hover:border-primary/20 hover:-translate-y-2"}`}
+                                className={`relative rounded-3xl p-8 text-center cursor-pointer transition-all duration-500 overflow-hidden group border-primary/5 shadow-none ${activeTab === service.id ? "bg-primary/10 border-primary/40" : "bg-white dark:bg-card/50 hover:bg-card hover:border-primary/20 hover:-translate-y-2 shadow-sm"}`}
                                 onClick={() => {
                                     setActiveTab(service.id);
                                     document.querySelector(`[value="${service.id}"]`)?.dispatchEvent(new MouseEvent('click', { bubbles: true }));
                                 }}
                             >
-                                <div className={`w-16 h-16 rounded-2xl mx-auto mb-6 flex items-center justify-center transition-all duration-500 ${activeTab === service.id ? "bg-primary text-primary-foreground rotate-6" : "bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground group-hover:rotate-6 shadow-sm"}`}>
-                                    <Icon className="w-7 h-7" />
+                                <div className={`w-20 h-20 rounded-3xl mx-auto mb-6 flex items-center justify-center transition-all duration-500 ${activeTab === service.id ? "bg-primary text-primary-foreground rotate-6" : "bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground group-hover:rotate-6 shadow-sm"}`}>
+                                    <Icon className="w-10 h-10" />
                                 </div>
-                                <span className="text-base font-bold block mb-2">{service.title}</span>
-                                <span className="text-xs text-muted-foreground font-semibold uppercase tracking-wider">
+                                <span className="text-lg font-black block mb-2">{service.title}</span>
+                                <Badge variant="secondary" className="bg-primary/10 text-primary border-none font-black text-[10px] tracking-widest uppercase">
                                     From {service.startingPrice}
-                                </span>
+                                </Badge>
                             </Card>
                         );
                     })}

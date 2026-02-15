@@ -60,7 +60,7 @@ export default function Booking() {
                         <Check className="w-12 h-12 text-primary-foreground" />
                     </div>
                     <h2 className="font-display text-5xl font-bold mb-6">
-                        Booking <span className="text-gold-gradient">Confirmed!</span>
+                        Booking <span className="text-primary">Confirmed!</span>
                     </h2>
                     <p className="text-muted-foreground text-xl mb-12 font-medium">
                         Thank you for choosing Luxe Salon & Spa. We&apos;ve sent a confirmation
@@ -97,16 +97,15 @@ export default function Booking() {
             <div className="container relative z-10">
                 {/* Header */}
                 <div className="text-center mb-10">
-                    <Badge variant="outline" className="mb-4 rounded-full px-5 py-2 border-primary/30 bg-primary/5 text-primary text-xs tracking-widest uppercase font-black">
-                        Reserve Your Experience
+                    <Badge variant="outline" className="mb-4 rounded-full px-5 py-2 border-primary/30 bg-primary/10 text-primary text-xs tracking-widest uppercase font-black">
+                        Save Your Spot
                     </Badge>
-                    <h2 className="font-display text-4xl md:text-6xl font-bold mt-4 mb-6 text-center">
-                        Book <span className="text-gold-gradient">An Appointment</span>
+                    <h2 className="font-display text-4xl md:text-6xl font-black mt-4 mb-6 text-center">
+                        Book <span className="text-primary">Your Squad</span>
                     </h2>
-                    <p className="text-muted-foreground max-w-xl mx-auto text-lg md:text-xl font-medium">
-                        Take the first step towards your perfect look.
+                    <p className="text-muted-foreground max-w-xl mx-auto text-lg md:text-xl font-bold">
+                        Pick your favorite service, grab a stylist, and get ready to shine!
                     </p>
-                    <Separator className="w-24 mx-auto mt-8 bg-linear-to-r from-transparent via-primary to-transparent" />
                 </div>
 
                 {/* Progress Bar */}
@@ -114,16 +113,16 @@ export default function Booking() {
                     {[1, 2, 3, 4].map((num) => (
                         <div key={num} className="flex items-center gap-4 md:gap-8">
                             <div
-                                className={`w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center text-sm md:text-base font-black transition-all duration-500 shadow-lg ${step >= num
-                                    ? "bg-linear-to-br from-primary to-gold-dark text-primary-foreground scale-105"
-                                    : "bg-secondary text-muted-foreground border border-border"
+                                className={`w-12 h-12 md:w-16 md:h-16 rounded-2xl flex items-center justify-center text-lg md:text-xl font-black transition-all duration-500 shadow-xl ${step >= num
+                                    ? "bg-primary text-primary-foreground scale-110 rotate-3"
+                                    : "bg-secondary text-muted-foreground border border-primary/5"
                                     }`}
                             >
-                                {step > num ? <Check className="w-5 h-5 md:w-6 md:h-6" /> : num}
+                                {step > num ? <Check className="w-6 h-6 md:w-8 md:h-8" /> : num}
                             </div>
                             {num < 4 && (
                                 <div
-                                    className={`w-8 md:w-16 h-1 rounded-full transition-all duration-500 shadow-sm ${step > num ? "bg-primary" : "bg-muted"
+                                    className={`w-8 md:w-16 h-2 rounded-full transition-all duration-500 ${step > num ? "bg-primary" : "bg-muted"
                                         }`}
                                 />
                             )}
@@ -133,12 +132,12 @@ export default function Booking() {
 
                 {/* Form Wizard */}
                 <div className="max-w-4xl mx-auto">
-                    <Card className="bg-card/60 backdrop-blur-xl border-border rounded-4xl p-6 md:p-12 shadow-none">
+                    <Card className="bg-white/80 dark:bg-card/60 backdrop-blur-xl border-primary/5 rounded-[2.5rem] p-6 md:p-12 shadow-2xl">
                         <CardContent className="p-0">
                             {/* Step 1: Select Service */}
                             {step === 1 && (
                                 <div className="animate-in fade-in slide-in-from-right-4 duration-500">
-                                    <h3 className="font-display text-3xl font-bold mb-10 text-center">Choose Your Transformation</h3>
+                                    <h3 className="font-display text-3xl font-black mb-10 text-center">Which Magic?</h3>
                                     <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
                                         {serviceOptions.map((svc) => {
                                             const Icon = svc.icon;
@@ -147,14 +146,14 @@ export default function Booking() {
                                                     key={svc.label}
                                                     onClick={() => setSelectedService(svc.label)}
                                                     className={`p-6 rounded-3xl border text-center transition-all duration-500 cursor-pointer group ${selectedService === svc.label
-                                                        ? "border-primary bg-primary/5 ring-1 ring-primary/20"
-                                                        : "border-border/50 bg-background/20 hover:border-primary/30"
+                                                        ? "border-primary bg-primary/10 ring-2 ring-primary/20 scale-105"
+                                                        : "border-primary/5 bg-secondary/30 hover:border-primary/30 hover:-translate-y-1"
                                                         }`}
                                                 >
                                                     <div
-                                                        className={`w-14 h-14 rounded-2xl mx-auto mb-4 flex items-center justify-center transition-all duration-500 ${selectedService === svc.label
-                                                            ? "bg-primary text-primary-foreground rotate-3"
-                                                            : "bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground group-hover:rotate-3 shadow-sm"
+                                                        className={`w-16 h-16 rounded-2xl mx-auto mb-4 flex items-center justify-center transition-all duration-500 shadow-lg ${selectedService === svc.label
+                                                            ? "bg-primary text-primary-foreground rotate-6"
+                                                            : "bg-white dark:bg-card text-primary group-hover:bg-primary group-hover:text-primary-foreground group-hover:rotate-6"
                                                             }`}
                                                     >
                                                         <Icon className="w-8 h-8" />
@@ -169,7 +168,7 @@ export default function Booking() {
                                             size="lg"
                                             onClick={() => selectedService && setStep(2)}
                                             disabled={!selectedService}
-                                            className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-none tracking-[0.2em] uppercase text-xs font-black px-12 h-16 shadow-2xl disabled:opacity-50"
+                                            className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-2xl tracking-[0.2em] uppercase text-xs font-black px-12 h-16 shadow-[0_10px_30px_rgba(0,201,167,0.4)] disabled:opacity-50"
                                         >
                                             Continue
                                             <ArrowRight className="w-4 h-4 ml-2" />
@@ -181,18 +180,18 @@ export default function Booking() {
                             {/* Step 2: Select Stylist */}
                             {step === 2 && (
                                 <div className="animate-in fade-in slide-in-from-right-4 duration-500">
-                                    <h3 className="font-display text-3xl font-bold mb-10 text-center">Meet Our Masters</h3>
+                                    <h3 className="font-display text-3xl font-black mb-10 text-center">Meet The Squad</h3>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         {stylists.map((st) => (
                                             <button
                                                 key={st.id}
                                                 onClick={() => setSelectedStylist(st)}
                                                 className={`flex items-center gap-6 p-6 rounded-3xl border text-left transition-all duration-500 cursor-pointer group ${selectedStylist?.id === st.id
-                                                    ? "border-primary bg-primary/5 ring-1 ring-primary/20"
-                                                    : "border-border/50 bg-background/20 hover:border-primary/30"
+                                                    ? "border-primary bg-primary/10 ring-2 ring-primary/20 scale-105"
+                                                    : "border-primary/5 bg-secondary/30 hover:border-primary/20 hover:-translate-y-1"
                                                     }`}
                                             >
-                                                <div className="relative w-24 h-24 rounded-2xl overflow-hidden shrink-0 border border-primary/10">
+                                                <div className="relative w-24 h-24 rounded-3xl overflow-hidden shrink-0 border-4 border-white dark:border-white/10 shadow-lg">
                                                     <img
                                                         src={st.image}
                                                         alt={st.name}
@@ -200,9 +199,9 @@ export default function Booking() {
                                                     />
                                                 </div>
                                                 <div>
-                                                    <h4 className="text-xl font-bold mb-1">{st.name}</h4>
-                                                    <p className="text-primary text-xs font-black uppercase tracking-widest mb-2">{st.role}</p>
-                                                    <Badge variant="outline" className="text-[10px] uppercase font-bold text-muted-foreground">{st.specialty}</Badge>
+                                                    <h4 className="text-xl font-black mb-1">{st.name}</h4>
+                                                    <Badge variant="secondary" className="bg-primary/10 text-primary border-none font-black text-[10px] tracking-widest uppercase mb-2">{st.role}</Badge>
+                                                    <p className="text-[10px] uppercase font-black text-muted-foreground tracking-widest">{st.specialty}</p>
                                                 </div>
                                             </button>
                                         ))}
@@ -211,7 +210,7 @@ export default function Booking() {
                                         <Button
                                             variant="ghost"
                                             onClick={() => setStep(1)}
-                                            className="text-muted-foreground hover:text-primary font-bold uppercase tracking-widest text-xs"
+                                            className="text-muted-foreground hover:text-primary font-black uppercase tracking-widest text-xs h-16 px-8 rounded-2xl"
                                         >
                                             ← Back
                                         </Button>
@@ -219,7 +218,7 @@ export default function Booking() {
                                             size="lg"
                                             onClick={() => selectedStylist && setStep(3)}
                                             disabled={!selectedStylist}
-                                            className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-none tracking-[0.2em] uppercase text-xs font-black px-12 h-16 shadow-2xl disabled:opacity-50"
+                                            className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-2xl tracking-[0.2em] uppercase text-xs font-black px-12 h-16 shadow-[0_10px_30px_rgba(0,201,167,0.4)] disabled:opacity-50"
                                         >
                                             Continue
                                             <ArrowRight className="w-4 h-4 ml-2" />
@@ -231,27 +230,27 @@ export default function Booking() {
                             {/* Step 3: Date & Time */}
                             {step === 3 && (
                                 <div className="animate-in fade-in slide-in-from-right-4 duration-500">
-                                    <h3 className="font-display text-3xl font-bold mb-10 text-center">Pick a Day & Time</h3>
+                                    <h3 className="font-display text-3xl font-black mb-10 text-center">When's The Party?</h3>
 
                                     <div className="grid md:grid-cols-2 gap-12">
                                         <div className="space-y-6">
                                             <label className="flex items-center gap-3 text-sm font-black uppercase tracking-widest text-primary">
                                                 <Calendar className="w-5 h-5" />
-                                                1. Select Date
+                                                1. Pick A Date
                                             </label>
                                             <Input
                                                 type="date"
                                                 value={selectedDate}
                                                 onChange={(e) => setSelectedDate(e.target.value)}
                                                 min={new Date().toISOString().split("T")[0]}
-                                                className="bg-background border-border h-16 rounded-2xl px-6 font-bold"
+                                                className="bg-secondary/30 border-primary/10 h-16 rounded-2xl px-6 font-black text-primary focus:ring-primary"
                                             />
                                         </div>
 
                                         <div className="space-y-6">
                                             <label className="flex items-center gap-3 text-sm font-black uppercase tracking-widest text-primary">
                                                 <Clock className="w-5 h-5" />
-                                                2. Select Slot
+                                                2. Pick A Slot
                                             </label>
                                             <div className="grid grid-cols-2 gap-3">
                                                 {timeSlots.map((time) => (
@@ -260,8 +259,8 @@ export default function Booking() {
                                                         variant={selectedTime === time ? "default" : "outline"}
                                                         onClick={() => setSelectedTime(time)}
                                                         className={`h-12 rounded-xl text-xs font-black tracking-widest uppercase transition-all duration-300 ${selectedTime === time
-                                                            ? "bg-primary text-primary-foreground"
-                                                            : "bg-background border-border/50 text-muted-foreground hover:text-primary hover:border-primary/40"
+                                                            ? "bg-primary text-primary-foreground shadow-lg scale-105"
+                                                            : "bg-white dark:bg-card border-primary/10 text-muted-foreground hover:text-primary hover:border-primary/40"
                                                             }`}
                                                     >
                                                         {time}
@@ -275,15 +274,15 @@ export default function Booking() {
                                         <Button
                                             variant="ghost"
                                             onClick={() => setStep(2)}
-                                            className="text-muted-foreground hover:text-primary font-bold uppercase tracking-widest text-xs"
+                                            className="text-muted-foreground hover:text-primary font-black uppercase tracking-widest text-xs h-16 px-8 rounded-2xl"
                                         >
-                                            ← Previous
+                                            ← Back
                                         </Button>
                                         <Button
                                             size="lg"
                                             onClick={() => selectedDate && selectedTime && setStep(4)}
                                             disabled={!selectedDate || !selectedTime}
-                                            className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-none tracking-[0.2em] uppercase text-xs font-black px-12 h-16 shadow-2xl disabled:opacity-50"
+                                            className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-2xl tracking-[0.2em] uppercase text-xs font-black px-12 h-16 shadow-[0_10px_30px_rgba(0,201,167,0.4)] disabled:opacity-50"
                                         >
                                             Continue
                                         </Button>
@@ -294,63 +293,63 @@ export default function Booking() {
                             {/* Step 4: Confirmation Form & Advance Payment */}
                             {step === 4 && (
                                 <form onSubmit={handleSubmit} className="animate-in fade-in slide-in-from-right-4 duration-500">
-                                    <h3 className="font-display text-3xl font-bold mb-8 text-center">Secure Your Appointment</h3>
+                                    <h3 className="font-display text-3xl font-black mb-8 text-center">Secure Your Spot!</h3>
 
-                                    <div className="bg-primary/5 border border-primary/20 rounded-3xl p-6 mb-10 grid grid-cols-2 md:grid-cols-4 gap-6">
-                                        <div className="text-center md:text-left border-r border-primary/10 last:border-none px-4">
-                                            <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground block mb-1">Service</span>
-                                            <span className="text-primary font-display font-bold text-base">{selectedService}</span>
+                                    <div className="bg-primary/5 border border-primary/10 rounded-[2rem] p-8 mb-10 grid grid-cols-2 lg:grid-cols-4 gap-6 shadow-inner">
+                                        <div className="text-center md:text-left border-r border-primary/10 last:border-none px-2">
+                                            <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground block mb-2">Service</span>
+                                            <span className="text-primary font-black text-sm block">{selectedService}</span>
                                         </div>
-                                        <div className="text-center md:text-left border-r border-primary/10 last:border-none px-4">
-                                            <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground block mb-1">Stylist</span>
-                                            <span className="text-primary font-display font-bold text-base">{selectedStylist?.name}</span>
+                                        <div className="text-center md:text-left border-r border-primary/10 last:border-none px-2">
+                                            <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground block mb-2">Stylist</span>
+                                            <span className="text-primary font-black text-sm block">{selectedStylist?.name}</span>
                                         </div>
-                                        <div className="text-center md:text-left border-r border-primary/10 last:border-none px-4">
-                                            <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground block mb-1">Schedule</span>
-                                            <span className="text-primary font-display font-bold text-base">{selectedDate} / {selectedTime}</span>
+                                        <div className="text-center md:text-left border-r border-primary/10 last:border-none px-2">
+                                            <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground block mb-2">Schedule</span>
+                                            <span className="text-primary font-black text-sm block">{selectedTime}</span>
                                         </div>
-                                        <div className="text-center md:text-left last:border-none px-4">
-                                            <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground block mb-1">Security Deposit</span>
-                                            <span className="text-gold-gradient font-display font-bold text-xl">{depositAmount}</span>
+                                        <div className="text-center md:text-left last:border-none px-2">
+                                            <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground block mb-2">Deposit</span>
+                                            <span className="text-primary font-black text-2xl block">{depositAmount}</span>
                                         </div>
                                     </div>
 
                                     <div className="grid md:grid-cols-2 gap-6 mb-6">
                                         <Input
                                             required
-                                            placeholder="Your Full Name"
+                                            placeholder="What's your name?"
                                             value={formData.name}
                                             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                            className="bg-background border-border h-16 rounded-2xl px-6 font-bold"
+                                            className="bg-secondary/30 border-primary/10 h-16 rounded-2xl px-6 font-black"
                                         />
                                         <Input
                                             required
                                             placeholder="Phone Number"
                                             value={formData.phone}
                                             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                                            className="bg-background border-border h-16 rounded-2xl px-6 font-bold"
+                                            className="bg-secondary/30 border-primary/10 h-16 rounded-2xl px-6 font-black"
                                         />
                                     </div>
                                     <Input
                                         placeholder="Email Address (Optional)"
                                         value={formData.email}
                                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                        className="bg-background border-border h-16 rounded-2xl px-6 font-bold mb-6"
+                                        className="bg-secondary/30 border-primary/10 h-16 rounded-2xl px-6 font-black mb-6"
                                     />
                                     <Textarea
-                                        placeholder="Any special requests or details..."
+                                        placeholder="Any special requests? (Don't be shy!)"
                                         value={formData.notes}
                                         onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                                        className="bg-background border-border rounded-2xl p-6 font-bold mb-8 min-h-[100px]"
+                                        className="bg-secondary/30 border-primary/10 rounded-2xl p-6 font-black mb-8 min-h-[100px]"
                                     />
 
                                     {/* Payment Section Note */}
-                                    <div className="bg-secondary/50 rounded-2xl p-6 mb-10 border border-border flex items-start gap-4">
-                                        <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
-                                            <Star className="w-5 h-5 text-primary" />
+                                    <div className="bg-accent/10 rounded-2xl p-6 mb-10 border border-accent/20 flex items-start gap-4">
+                                        <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center shrink-0 shadow-lg">
+                                            <Star className="w-5 h-5 text-accent-foreground fill-accent-foreground" />
                                         </div>
-                                        <p className="text-sm text-muted-foreground leading-relaxed">
-                                            We require a small <span className="text-primary font-bold">Advance Deposit of {depositAmount}</span> to confirm your slot and avoid no-shows. The remaining amount can be paid at the salon after your service.
+                                        <p className="text-sm text-muted-foreground leading-relaxed font-bold">
+                                            Heads up! We need a small <span className="text-primary font-black">Deposit of {depositAmount}</span> via WhatsApp/UPI to confirm your slot. The rest can be paid after your glow-up!
                                         </p>
                                     </div>
 
@@ -359,14 +358,14 @@ export default function Booking() {
                                             type="button"
                                             variant="ghost"
                                             onClick={() => setStep(3)}
-                                            className="text-muted-foreground hover:text-primary font-bold uppercase tracking-widest text-xs"
+                                            className="text-muted-foreground hover:text-primary font-black uppercase tracking-widest text-xs h-16 px-8 rounded-2xl"
                                         >
                                             ← Back
                                         </Button>
                                         <Button
                                             type="submit"
                                             size="lg"
-                                            className="bg-linear-to-br from-primary to-gold-dark text-primary-foreground hover:opacity-90 rounded-none tracking-[0.2em] uppercase text-xs font-black px-12 h-16 shadow-2xl"
+                                            className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-2xl tracking-[0.2em] uppercase text-xs font-black px-12 h-16 shadow-[0_10px_30px_rgba(0,201,167,0.4)]"
                                         >
                                             Pay & Confirm
                                             <Check className="w-5 h-5 ml-2" />

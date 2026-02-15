@@ -48,16 +48,15 @@ export default function WhyChooseUs() {
 
             <div className="container relative z-10">
                 <div className="text-center mb-20">
-                    <Badge variant="outline" className="mb-4 rounded-full px-5 py-2 border-primary/20 bg-primary/5 text-primary text-xs tracking-widest uppercase font-black">
-                        The Luxe Edge
+                    <Badge variant="outline" className="mb-4 rounded-full px-5 py-2 border-primary/20 bg-primary/10 text-primary text-xs tracking-widest uppercase font-black">
+                        The Squad Edge
                     </Badge>
-                    <h2 className="font-display text-4xl md:text-6xl font-bold mt-4 mb-6">
-                        Why <span className="text-gold-gradient">Choose</span> Luxe
+                    <h2 className="font-display text-4xl md:text-6xl font-black mt-4 mb-6">
+                        Why We <span className="text-primary">Rock!</span>
                     </h2>
-                    <p className="text-muted-foreground max-w-2xl mx-auto text-lg md:text-xl font-medium">
-                        We don&apos;t just offer services, we craft experiences that redefine your style.
+                    <p className="text-muted-foreground max-w-2xl mx-auto text-lg md:text-xl font-bold">
+                        We don&apos;t just do hair, we craft your new favorite look!
                     </p>
-                    <Separator className="w-24 mx-auto mt-8 bg-linear-to-r from-transparent via-primary to-transparent" />
                 </div>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
@@ -66,18 +65,18 @@ export default function WhyChooseUs() {
                         return (
                             <Card
                                 key={i}
-                                className="group relative bg-card/60 border border-border/50 rounded-4xl p-10 hover:bg-card hover:border-primary/30 hover:-translate-y-2 transition-all duration-500 shadow-none overflow-hidden"
+                                className="group relative bg-white/80 dark:bg-card/60 border border-primary/5 rounded-[3rem] p-10 hover:bg-card hover:border-primary/20 hover:-translate-y-2 transition-all duration-500 shadow-sm hover:shadow-[0_20px_50px_rgba(0,201,167,0.2)] overflow-hidden"
                             >
-                                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full -z-10 transition-all duration-500 group-hover:bg-primary/10" />
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-[4rem] -z-10 transition-all duration-500 group-hover:bg-primary/10" />
 
                                 <CardContent className="p-0">
-                                    <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-8 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500 shadow-sm">
-                                        <Icon className="w-8 h-8" />
+                                    <div className="w-20 h-20 rounded-[2rem] bg-secondary flex items-center justify-center mb-8 group-hover:bg-primary group-hover:text-primary-foreground group-hover:rotate-12 transition-all duration-500 shadow-sm">
+                                        <Icon className="w-10 h-10 text-primary group-hover:text-white" />
                                     </div>
-                                    <h3 className="font-display text-2xl font-bold mb-4 group-hover:text-primary transition-colors">
+                                    <h3 className="font-display text-2xl font-black mb-4 group-hover:text-primary transition-colors">
                                         {feature.title}
                                     </h3>
-                                    <p className="text-muted-foreground leading-relaxed font-medium">
+                                    <p className="text-muted-foreground leading-relaxed font-bold">
                                         {feature.description}
                                     </p>
                                 </CardContent>
@@ -87,9 +86,12 @@ export default function WhyChooseUs() {
                 </div>
 
                 {/* Bottom CTA Element */}
-                <div className="mt-20 p-10 rounded-4xl bg-linear-to-r from-primary/10 via-background to-primary/10 border border-primary/10 text-center">
-                    <h4 className="font-display text-2xl font-bold mb-2 italic">&ldquo;Professionalism is our signature, Luxury is our standard.&rdquo;</h4>
-                    <p className="text-primary text-sm font-black uppercase tracking-widest">— TEAM LUXE</p>
+                <div className="mt-20 p-10 rounded-[3rem] bg-linear-to-r from-primary/10 via-brand-teal/10 to-primary/10 border border-primary/10 text-center relative overflow-hidden">
+                    <div className="absolute -top-10 -left-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl animate-pulse" />
+                    <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-brand-teal/10 rounded-full blur-3xl animate-pulse" />
+
+                    <h4 className="font-display text-2xl md:text-3xl font-black mb-4 italic text-foreground">&ldquo;Confidence is the best accessory, but a fresh cut helps too!&rdquo;</h4>
+                    <p className="text-primary text-xs font-black uppercase tracking-[0.4em]">— THE SQUAD</p>
                 </div>
             </div>
         </section>

@@ -52,15 +52,15 @@ export default function Transformations() {
             <div className="container relative z-10">
                 <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
                     <div>
-                        <Badge variant="outline" className="mb-4 rounded-full px-5 py-2 border-primary/30 bg-primary/5 text-primary text-xs tracking-widest uppercase font-black">
-                            Real Results
+                        <Badge variant="outline" className="mb-4 rounded-full px-5 py-2 border-primary/20 bg-primary/10 text-primary text-xs tracking-widest uppercase font-black">
+                            Real Magic
                         </Badge>
-                        <h2 className="font-display text-4xl md:text-6xl font-bold">
-                            Signature <span className="text-gold-gradient">Transformations</span>
+                        <h2 className="font-display text-4xl md:text-6xl font-black">
+                            Major <span className="text-primary">Glow-Ups</span>
                         </h2>
                     </div>
-                    <p className="text-muted-foreground max-w-md text-lg font-medium">
-                        Witness the artistry of our master stylists through these real before-and-after results.
+                    <p className="text-muted-foreground max-w-md text-lg font-bold">
+                        Check out these epic transformations! Our squad knows how to bring the fire.
                     </p>
                 </div>
 
@@ -71,19 +71,19 @@ export default function Transformations() {
                             <button
                                 key={t.id}
                                 onClick={() => setActiveIndex(idx)}
-                                className={`w-full text-left p-6 rounded-3xl border transition-all duration-500 group ${activeIndex === idx
-                                    ? "bg-primary/5 border-primary shadow-xl ring-1 ring-primary/20"
-                                    : "bg-card/50 border-border hover:border-primary/30"
+                                className={`w-full text-left p-6 rounded-[2rem] border transition-all duration-500 group cursor-pointer ${activeIndex === idx
+                                    ? "bg-primary/10 border-primary shadow-xl ring-2 ring-primary/20 scale-105"
+                                    : "bg-white dark:bg-card/50 border-primary/5 hover:border-primary/20"
                                     }`}
                             >
                                 <div className="flex items-center gap-4 mb-3">
-                                    <div className={`p-2 rounded-xl transition-colors ${activeIndex === idx ? "bg-primary text-primary-foreground" : "bg-primary/10 text-primary"}`}>
+                                    <div className={`p-3 rounded-2xl transition-all duration-500 ${activeIndex === idx ? "bg-primary text-primary-foreground rotate-12" : "bg-primary/20 text-primary group-hover:rotate-12"}`}>
                                         {idx === 0 ? <Scissors className="w-5 h-5" /> : idx === 1 ? <Sparkles className="w-5 h-5" /> : <Wand2 className="w-5 h-5" />}
                                     </div>
                                     <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">{t.category}</span>
                                 </div>
-                                <h3 className={`text-xl font-bold mb-2 transition-colors ${activeIndex === idx ? "text-primary" : "text-foreground"}`}>{t.title}</h3>
-                                <p className="text-sm text-muted-foreground line-clamp-2">{t.description}</p>
+                                <h3 className={`text-xl font-black mb-2 transition-colors ${activeIndex === idx ? "text-primary" : "text-foreground"}`}>{t.title}</h3>
+                                <p className="text-sm text-muted-foreground font-bold line-clamp-2">{t.description}</p>
                             </button>
                         ))}
                     </div>
@@ -146,8 +146,8 @@ export default function Transformations() {
             </div>
 
             {/* Background Decoration */}
-            <div className="absolute top-1/2 left-0 -translate-y-1/2 w-96 h-96 bg-primary/5 rounded-full blur-[120px] -z-10" />
-            <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-gold/3 rounded-full blur-[150px] -z-10" />
+            <div className="absolute top-1/2 left-0 -translate-y-1/2 w-96 h-96 bg-primary/10 rounded-full blur-[120px] -z-10" />
+            <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-brand-teal/5 rounded-full blur-[150px] -z-10" />
         </section>
     );
 }

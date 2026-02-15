@@ -137,30 +137,29 @@ export default function Pricing() {
             <div className="container relative z-10">
                 {/* Header */}
                 <div className="text-center mb-10">
-                    <Badge variant="outline" className="mb-3 rounded-full px-4 py-1.5 border-primary/20 bg-primary/5 text-primary text-[10px] tracking-widest uppercase font-bold">
-                        Transparent Pricing
+                    <Badge variant="outline" className="mb-3 rounded-full px-4 py-1.5 border-primary/20 bg-primary/10 text-primary text-[10px] tracking-widest uppercase font-black">
+                        Pure Joy Pricing
                     </Badge>
-                    <h2 className="font-display text-3xl md:text-5xl font-bold mt-2 mb-4 text-center">
-                        Our <span className="text-gold-gradient">Pricing</span>
+                    <h2 className="font-display text-3xl md:text-5xl font-black mt-2 mb-4 text-center">
+                        Our <span className="text-primary">Price Menu</span>
                     </h2>
-                    <p className="text-muted-foreground max-w-xl mx-auto text-base md:text-lg font-medium opacity-80">
-                        Premium quality services at competitive prices. No hidden charges.
+                    <p className="text-muted-foreground max-w-xl mx-auto text-base md:text-lg font-bold">
+                        Top-tier glow-ups at prices that'll make you smile!
                     </p>
-                    <Separator className="w-24 mx-auto mt-6 bg-linear-to-r from-transparent via-primary to-transparent" />
                 </div>
 
                 {/* Pricing Tabs */}
                 <div className="mb-12">
                     <Tabs defaultValue="hair" className="w-full">
                         <div className="flex justify-center mb-10">
-                            <TabsList className="flex flex-wrap h-auto p-1 bg-secondary/50 border border-border/50 rounded-full gap-1">
+                            <TabsList className="flex flex-wrap h-auto p-2 bg-secondary/50 border border-primary/10 rounded-[2rem] gap-2">
                                 {pricingData.map((cat) => {
                                     const Icon = cat.icon;
                                     return (
                                         <TabsTrigger
                                             key={cat.id}
                                             value={cat.id}
-                                            className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground bg-transparent text-muted-foreground hover:text-primary rounded-full px-8 py-3 text-sm font-bold tracking-wide transition-all duration-300 flex items-center gap-2 cursor-pointer"
+                                            className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-lg bg-transparent text-muted-foreground hover:text-primary rounded-2xl px-8 py-3 text-sm font-black tracking-wide transition-all duration-300 flex items-center gap-2 cursor-pointer"
                                         >
                                             <Icon className="w-4 h-4" />
                                             {cat.title}
@@ -176,28 +175,28 @@ export default function Pricing() {
                                     {cat.items.map((item, i) => (
                                         <div
                                             key={i}
-                                            className="flex items-center justify-between py-3 px-6 rounded-3xl bg-card/40 border border-border/10 hover:border-primary/40 hover:bg-card/80 transition-all duration-500 group shadow-sm hover:shadow-xl hover:-translate-y-1 cursor-pointer"
+                                            className="flex items-center justify-between py-4 px-8 rounded-[2rem] bg-white/80 dark:bg-card/40 border border-primary/5 hover:border-primary/20 hover:bg-white dark:hover:bg-card/80 transition-all duration-500 group shadow-sm hover:shadow-xl hover:-translate-y-1 cursor-pointer"
                                         >
                                             <div className="flex items-center gap-6">
-                                                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500">
-                                                    <cat.icon className="w-6 h-6" />
+                                                <div className="w-16 h-16 rounded-2xl bg-secondary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-primary-foreground group-hover:rotate-6 transition-all duration-500">
+                                                    <cat.icon className="w-7 h-7" />
                                                 </div>
                                                 <div>
-                                                    <span className="text-lg font-bold text-foreground block mb-1 group-hover:text-primary transition-colors">{item.name}</span>
-                                                    <span className="text-xs text-muted-foreground font-semibold uppercase tracking-widest flex items-center gap-2">
-                                                        <Clock className="w-3 h-3 text-primary/60" />
-                                                        Duration: {item.duration}
+                                                    <span className="text-lg font-black text-foreground block mb-1 group-hover:text-primary transition-colors">{item.name}</span>
+                                                    <span className="text-[10px] text-muted-foreground font-black uppercase tracking-[0.2em] flex items-center gap-2 bg-primary/5 px-3 py-1 rounded-full w-fit">
+                                                        <Clock className="w-3 h-3 text-primary" />
+                                                        {item.duration}
                                                     </span>
                                                 </div>
                                             </div>
                                             <div className="flex items-center gap-8">
                                                 <div className="text-right">
-                                                    <span className="text-2xl font-display font-bold text-gold-gradient block">
+                                                    <span className="text-2xl font-display font-black text-primary block">
                                                         {item.price}
                                                     </span>
                                                 </div>
-                                                <Button asChild size="sm" variant="ghost" className="hidden sm:flex text-primary hover:text-primary-foreground hover:bg-primary font-black uppercase tracking-[0.2em] text-[10px] rounded-full px-6 h-10 border border-primary/20">
-                                                    <a href="#booking">Book</a>
+                                                <Button asChild size="sm" variant="ghost" className="hidden sm:flex text-primary hover:text-primary-foreground hover:bg-primary font-black uppercase tracking-[0.2em] text-[10px] rounded-2xl px-6 h-12 border border-primary/20 shadow-sm transition-all">
+                                                    <a href="#booking">Book Now</a>
                                                 </Button>
                                             </div>
                                         </div>
@@ -211,50 +210,49 @@ export default function Pricing() {
                 {/* Packages */}
                 <div className="pt-10 text-center">
                     <div className="mb-10">
-                        <Badge variant="outline" className="mb-4 rounded-full px-5 py-2 border-primary/20 bg-primary/5 text-primary text-xs tracking-widest uppercase font-black">
-                            Exclusive Offers
+                        <Badge variant="outline" className="mb-4 rounded-full px-5 py-2 border-primary/20 bg-primary/10 text-primary text-xs tracking-widest uppercase font-black">
+                            Value Deals
                         </Badge>
-                        <h3 className="font-display text-4xl md:text-6xl font-bold mb-4">
-                            Special <span className="text-gold-gradient">Packages</span>
+                        <h3 className="font-display text-4xl md:text-6xl font-black mb-4">
+                            Epic <span className="text-primary">Packages</span>
                         </h3>
-                        <p className="text-muted-foreground mb-6 max-w-2xl mx-auto text-lg md:text-xl font-medium">
-                            Experience the ultimate transformation with our artisanal value sets.
+                        <p className="text-muted-foreground mb-6 max-w-2xl mx-auto text-lg md:text-xl font-bold">
+                            Level up your style game with our curated value sets.
                         </p>
-                        <Separator className="w-24 mx-auto bg-linear-to-r from-transparent via-primary to-transparent" />
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-10 items-stretch max-w-7xl mx-auto">
                         {packages.map((pkg) => (
                             <Card
                                 key={pkg.name}
-                                className={`relative rounded-4xl p-8 transition-all duration-700 flex flex-col items-center text-center shadow-none border border-border/10 ${pkg.highlighted
-                                    ? "bg-card shadow-[0_30px_60px_rgba(196,160,93,0.25)] ring-1 ring-primary/30 scale-105 z-10"
-                                    : "bg-card/40 border-border/20 hover:border-primary/30 hover:shadow-2xl hover:bg-card/80"
+                                className={`relative rounded-[3rem] p-8 transition-all duration-700 flex flex-col items-center text-center shadow-sm border border-primary/5 ${pkg.highlighted
+                                    ? "bg-white dark:bg-card shadow-[0_30px_60px_rgba(0,201,167,0.25)] ring-2 ring-primary/40 scale-105 z-10"
+                                    : "bg-white/40 dark:bg-card/40 border-primary/10 hover:border-primary/30 hover:shadow-2xl hover:bg-white/80 dark:hover:bg-card/80"
                                     }`}
                             >
                                 {pkg.highlighted && (
-                                    <Badge className="absolute -top-5 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground tracking-[0.3em] uppercase text-xs font-black px-8 py-3 rounded-full shadow-2xl border-none">
-                                        Best Value
+                                    <Badge className="absolute -top-5 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground tracking-[0.3em] uppercase text-xs font-black px-8 py-3 rounded-2xl shadow-2xl border-none rotate-2">
+                                        Best Value!
                                     </Badge>
                                 )}
 
                                 <div className="mb-6">
-                                    <h4 className="font-display text-3xl md:text-4xl font-bold mb-2">{pkg.name}</h4>
-                                    <p className="text-sm text-muted-foreground font-semibold">{pkg.description}</p>
+                                    <h4 className="font-display text-3xl md:text-4xl font-black mb-2">{pkg.name}</h4>
+                                    <p className="text-xs text-muted-foreground font-black uppercase tracking-widest">{pkg.description}</p>
                                 </div>
 
-                                <div className="mb-10 flex flex-col border-y border-primary/10 w-full py-6">
-                                    <span className="text-6xl font-display font-bold text-gold-gradient leading-none">
+                                <div className="mb-10 flex flex-col border-y border-primary/5 w-full py-8">
+                                    <span className="text-6xl font-display font-black text-primary leading-none">
                                         {pkg.price}
                                     </span>
-                                    <span className="text-muted-foreground text-[10px] uppercase tracking-[0.3em] font-black mt-4">All-Inclusive Set</span>
+                                    <span className="text-primary text-[10px] uppercase tracking-[0.4em] font-black mt-4">Total Transformation</span>
                                 </div>
 
                                 <ul className="space-y-4 mb-10 w-full text-left">
                                     {pkg.features.map((f, i) => (
                                         <li key={i} className="flex items-center gap-4 text-sm font-bold text-foreground/90 group/li">
-                                            <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center shrink-0 group-hover/li:bg-primary transition-colors">
-                                                <Check className="w-3 h-3 text-primary group-hover/li:text-primary-foreground" />
+                                            <div className="w-6 h-6 rounded-lg bg-secondary flex items-center justify-center shrink-0 group-hover/li:bg-primary transition-all group-hover/li:rotate-12">
+                                                <Check className="w-3 h-3 text-primary group-hover/li:text-white" />
                                             </div>
                                             {f}
                                         </li>
@@ -263,12 +261,12 @@ export default function Pricing() {
 
                                 <Button
                                     asChild
-                                    className={`mt-auto w-full h-16 rounded-full tracking-[0.3em] uppercase text-[10px] font-black transition-all duration-500 cursor-pointer ${pkg.highlighted
-                                        ? "bg-linear-to-br from-primary to-gold-dark text-primary-foreground shadow-2xl hover:scale-[1.02]"
+                                    className={`mt-auto w-full h-16 rounded-[1.5rem] tracking-[0.3em] uppercase text-[10px] font-black transition-all duration-500 cursor-pointer ${pkg.highlighted
+                                        ? "bg-primary text-primary-foreground shadow-2xl hover:scale-[1.02] border-none"
                                         : "border-primary/40 border-2 text-primary hover:bg-primary hover:text-primary-foreground bg-transparent"
                                         }`}
                                 >
-                                    <a href="#booking">Choose Experience</a>
+                                    <a href="#booking">Glow Up Now</a>
                                 </Button>
                             </Card>
                         ))}

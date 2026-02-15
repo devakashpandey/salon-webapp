@@ -39,15 +39,15 @@ export default function Navbar() {
             <div className="container mx-auto px-6 lg:px-12 flex items-center justify-between">
                 {/* Logo */}
                 <a href="#home" className="flex items-center gap-3 group">
-                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-linear-to-br from-primary to-gold-dark flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-linear-to-br from-primary to-brand-teal flex items-center justify-center transition-transform duration-300 group-hover:scale-110 shadow-lg">
                         <Scissors className="w-5 h-5 md:w-6 md:h-6 text-primary-foreground" />
                     </div>
                     <div>
-                        <span className={`text-xl md:text-2xl font-display font-bold tracking-wider transition-colors duration-500 ${isScrolled ? "text-gold-gradient" : "text-white"}`}>
+                        <span className={`text-xl md:text-2xl font-display font-black tracking-wider transition-colors duration-500 ${isScrolled ? "text-primary" : "text-foreground"}`}>
                             LUXE
                         </span>
-                        <span className={`block text-[8px] md:text-[10px] tracking-[0.3em] uppercase -mt-1 font-medium transition-colors duration-500 ${isScrolled ? "text-muted-foreground" : "text-white/60"}`}>
-                            Salon & Spa
+                        <span className={`block text-[8px] md:text-[10px] tracking-[0.3em] uppercase -mt-1 font-black transition-colors duration-500 ${isScrolled ? "text-muted-foreground" : "text-primary/70"}`}>
+                            Salon & Squad
                         </span>
                     </div>
                 </a>
@@ -58,7 +58,7 @@ export default function Navbar() {
                         <a
                             key={link.label}
                             href={link.href}
-                            className={`text-sm font-medium transition-all tracking-wide hover:text-primary ${isScrolled ? "text-muted-foreground" : "text-white/80"}`}
+                            className={`text-sm font-black transition-all tracking-wide hover:text-primary ${isScrolled ? "text-muted-foreground" : "text-foreground/80"}`}
                         >
                             {link.label}
                         </a>
@@ -68,7 +68,7 @@ export default function Navbar() {
                 {/* desktop CTA */}
                 <div className="hidden lg:flex items-center gap-4">
                     <ModeToggle />
-                    <Button asChild className="bg-linear-to-br from-primary to-gold-dark hover:from-gold-dark hover:to-primary text-primary-foreground border-none rounded-full px-6 shadow-lg transform active:scale-95 transition-all cursor-pointer">
+                    <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 border-none rounded-2xl px-6 shadow-lg transform active:scale-95 transition-all cursor-pointer font-black uppercase text-xs tracking-widest h-12">
                         <a href="#booking">
                             <Calendar className="w-4 h-4" />
                             Book Now
@@ -91,13 +91,13 @@ export default function Navbar() {
                                 <div className="p-8 pb-4">
                                     <header className="flex items-center justify-between mb-8">
                                         <div className="flex items-center gap-3">
-                                            <div className="w-10 h-10 rounded-full bg-linear-to-br from-primary to-gold-dark flex items-center justify-center">
+                                            <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center shadow-lg">
                                                 <Scissors className="w-5 h-5 text-primary-foreground" />
                                             </div>
-                                            <span className="text-xl font-display font-bold tracking-wider text-gold-gradient">LUXE</span>
+                                            <span className="text-xl font-display font-black tracking-wider text-primary">LUXE</span>
                                         </div>
                                     </header>
-                                    <Separator className="bg-border/50" />
+                                    <Separator className="bg-primary/10" />
                                 </div>
 
                                 <nav className="flex-1 px-8 py-4 flex flex-col gap-2">
@@ -120,7 +120,7 @@ export default function Navbar() {
                                             Experience world-class grooming in the heart of Bangalore.
                                         </p>
                                     </div>
-                                    <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90 h-16 rounded-none uppercase tracking-widest font-bold">
+                                    <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90 h-16 rounded-2xl uppercase tracking-widest font-black shadow-lg">
                                         <a href="#booking">Book Appointment</a>
                                     </Button>
                                 </div>

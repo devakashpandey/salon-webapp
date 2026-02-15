@@ -56,7 +56,7 @@
     --background: #0F172A;
     --foreground: #F8FAFC;
     --primary: #4D7CFF;
-    --primary-foreground: #FFFFFF;
+    --primary-foreground: #FFFFFF; /* Change this to white */
     --secondary: #1E293B;
     --secondary-foreground: #38BDF8;
     --muted: #1E293B;

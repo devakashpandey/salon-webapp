@@ -63,9 +63,18 @@ export default function Booking() {
                         Booking <span className="text-gold-gradient">Confirmed!</span>
                     </h2>
                     <p className="text-muted-foreground text-xl mb-12 font-medium">
-                        Thank you for choosing Luxe Salon & Parlor. We&apos;ve sent a confirmation
-                        to your phone. Prepare for your transformation!
+                        Thank you for choosing Luxe Salon & Parlor. 
+                        We&apos;ve sent an <strong>automated confirmation</strong> to your WhatsApp.
                     </p>
+                    <div className="flex items-center justify-center gap-4 mb-12 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500">
+                        <div className="w-12 h-12 rounded-full bg-green-500/10 flex items-center justify-center">
+                            <MessageSquare className="w-6 h-6 text-green-500 fill-green-500/20" />
+                        </div>
+                        <div className="text-left">
+                            <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Notification Status</p>
+                            <p className="text-xs font-bold text-green-500">WhatsApp Sent Successfully!</p>
+                        </div>
+                    </div>
                     <div className="bg-primary/5 rounded-3xl p-8 mb-12 border border-primary/10">
                         <p className="text-sm font-bold uppercase tracking-widest text-primary mb-2">Booking ID</p>
                         <p className="text-2xl font-display font-bold">#LX-{Math.floor(1000 + Math.random() * 9000)}</p>

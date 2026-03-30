@@ -232,33 +232,6 @@ export default function Services() {
                     })}
                 </Tabs>
 
-                {/* Quick Access Categories */}
-                <div className="mt-12">
-                    <h3 className="font-display text-xl md:text-2xl font-bold mb-4 text-center">Quick Access</h3>
-                    <div className="grid grid-cols-2 md:grid-cols-6 gap-3">
-                        {services.map((service) => {
-                            const Icon = service.icon;
-                            return (
-                                <Card
-                                    key={service.id}
-                                    className={`relative rounded-xl p-3 text-center cursor-pointer transition-all duration-500 overflow-hidden group border-border shadow-none ${activeTab === service.id ? "bg-primary/5 border-primary/40" : "bg-card/50 hover:bg-card hover:border-primary/20"}`}
-                                    onClick={() => {
-                                        setActiveTab(service.id);
-                                        document.querySelector(`[value="${service.id}"]`)?.dispatchEvent(new MouseEvent('click', { bubbles: true }));
-                                    }}
-                                >
-                                    <div className={`w-8 h-8 rounded-lg mx-auto mb-2 flex items-center justify-center transition-all duration-500 ${activeTab === service.id ? "bg-primary text-primary-foreground" : "bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground shadow-sm"}`}>
-                                        <Icon className="w-4 h-4" />
-                                    </div>
-                                    <span className="text-[10px] font-bold block mb-1">{service.title}</span>
-                                    <span className="text-[8px] text-muted-foreground font-semibold uppercase tracking-wider">
-                                        From {service.startingPrice}
-                                    </span>
-                                </Card>
-                            );
-                        })}
-                    </div>
-                </div>
             </div>
         </section>
     );

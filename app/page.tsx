@@ -12,6 +12,8 @@ import Testimonials from "@/components/Testimonials";
 import Booking from "@/components/Booking";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import LoyaltySystem from "@/components/LoyaltySystem";
+import SmartFeatures from "@/components/SmartFeatures";
 
 export default function Home() {
   return (
@@ -25,6 +27,8 @@ export default function Home() {
       <Gallery />
       <Transformations />
       <Pricing />
+      <LoyaltySystem />
+      <SmartFeatures />
       <Testimonials />
       <Booking />
       <Contact />

@@ -127,18 +127,16 @@ export default function Services() {
 
             <div className="container relative z-10">
                 {/* Section Header */}
-                <div className="pt-12 text-center">
-                    <Badge variant="outline" className="mb-4 rounded-full px-4 py-1.5 border-primary/30 bg-primary/5 text-primary text-xs tracking-[0.2em] uppercase font-bold">
+                <div className="pt-8 text-center mb-8">
+                    <Badge variant="outline" className="mb-2 rounded-full px-4 py-1 border-primary/30 bg-primary/5 text-primary text-[10px] tracking-[0.2em] uppercase font-bold">
                         What We Offer
                     </Badge>
-                    <h2 className="font-display text-4xl md:text-6xl font-bold mt-4 mb-6">
+                    <h2 className="font-display text-3xl md:text-5xl font-bold mt-2 mb-2">
                         Our <span className="text-gold-gradient">Premium</span> Services
                     </h2>
-                    <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed font-medium">
-                        Discover a world of beauty and wellness with our curated range of
-                        services designed for both men and women.
+                    <p className="text-sm md:text-base text-muted-foreground max-w-lg mx-auto font-medium">
+                        Discover beauty and wellness designed for both men and women in our premium salon and parlor.
                     </p>
-                    <Separator className="w-24 mx-auto mt-8 bg-linear-to-r from-transparent via-primary to-transparent" />
                 </div>
 
                 {/* Service Tabs */}
@@ -193,38 +191,38 @@ export default function Services() {
 
                                     {/* Content Side */}
                                     <div className="flex flex-col items-start text-left">
-                                        <Badge variant="outline" className="mb-6 rounded-full px-5 py-2 border-primary/20 bg-primary/5 text-primary text-xs tracking-widest uppercase font-bold flex items-center gap-2">
+                                        <Badge variant="outline" className="mb-4 rounded-full px-4 py-1 border-primary/20 bg-primary/5 text-primary text-[10px] tracking-widest uppercase font-bold flex items-center gap-2">
                                             <Icon className="w-4 h-4" />
                                             {service.subtitle}
                                         </Badge>
 
-                                        <h3 className="font-display text-4xl md:text-5xl font-bold mb-6">
+                                        <h3 className="font-display text-3xl md:text-4xl font-bold mb-4">
                                             {service.title}
                                         </h3>
 
-                                        <p className="text-muted-foreground text-lg md:text-xl leading-relaxed mb-10 font-medium">
+                                        <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-6 font-medium">
                                             {service.description}
                                         </p>
 
                                         {/* Features Grid */}
-                                        <div className="grid sm:grid-cols-2 gap-y-4 gap-x-8 mb-12 w-full">
+                                        <div className="grid sm:grid-cols-2 gap-y-2 gap-x-6 mb-8 w-full">
                                             {service.features.map((feature, i) => (
-                                                <div key={i} className="flex items-center gap-4 group">
-                                                    <div className="w-2 h-2 rounded-full bg-primary group-hover:scale-150 transition-transform" />
-                                                    <span className="text-foreground/90 font-semibold text-base">{feature}</span>
+                                                <div key={i} className="flex items-center gap-3 group">
+                                                    <div className="w-1.5 h-1.5 rounded-full bg-primary group-hover:scale-150 transition-transform" />
+                                                    <span className="text-foreground/90 font-semibold text-sm">{feature}</span>
                                                 </div>
                                             ))}
                                         </div>
 
-                                        <div className="flex flex-wrap gap-5 w-full">
-                                            <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-none tracking-widest uppercase text-xs font-black px-10 h-16 shadow-[0_10px_30px_rgb(var(--primary)/0.3)] flex-1 sm:flex-none">
+                                        <div className="flex flex-wrap gap-4 w-full">
+                                            <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-none tracking-widest uppercase text-[10px] font-bold px-8 h-12 shadow-lg flex-1 sm:flex-none">
                                                 <a href="#booking">
-                                                    Book This Service
-                                                    <ArrowRight className="w-4 h-4 ml-2" />
+                                                    Book Now
+                                                    <ArrowRight className="w-3.5 h-3.5 ml-2" />
                                                 </a>
                                             </Button>
-                                            <Button asChild size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-none tracking-widest uppercase text-xs font-black px-10 h-16 flex-1 sm:flex-none">
-                                                <a href="#pricing">View Full Pricing</a>
+                                            <Button asChild size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-none tracking-widest uppercase text-[10px] font-bold px-8 h-12 flex-1 sm:flex-none">
+                                                <a href="#pricing">Full Pricing</a>
                                             </Button>
                                         </div>
                                     </div>
@@ -235,32 +233,31 @@ export default function Services() {
                 </Tabs>
 
                 {/* Quick Access Categories */}
-                <div className="mt-20">
-                    <h3 className="font-display text-2xl md:text-3xl font-bold mb-2 text-center">Explore All Categories</h3>
-                    <div className="w-12 h-1 bg-primary rounded-full mx-auto" />
-                </div>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
-                    {services.map((service) => {
-                        const Icon = service.icon;
-                        return (
-                            <Card
-                                key={service.id}
-                                className={`relative rounded-2xl p-6 text-center cursor-pointer transition-all duration-500 overflow-hidden group border-border shadow-none ${activeTab === service.id ? "bg-primary/5 border-primary/40 ring-1 ring-primary/20" : "bg-card/50 hover:bg-card hover:border-primary/20 hover:-translate-y-2"}`}
-                                onClick={() => {
-                                    setActiveTab(service.id);
-                                    document.querySelector(`[value="${service.id}"]`)?.dispatchEvent(new MouseEvent('click', { bubbles: true }));
-                                }}
-                            >
-                                <div className={`w-16 h-16 rounded-2xl mx-auto mb-6 flex items-center justify-center transition-all duration-500 ${activeTab === service.id ? "bg-primary text-primary-foreground rotate-6" : "bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground group-hover:rotate-6 shadow-sm"}`}>
-                                    <Icon className="w-7 h-7" />
-                                </div>
-                                <span className="text-base font-bold block mb-2">{service.title}</span>
-                                <span className="text-xs text-muted-foreground font-semibold uppercase tracking-wider">
-                                    From {service.startingPrice}
-                                </span>
-                            </Card>
-                        );
-                    })}
+                <div className="mt-12">
+                    <h3 className="font-display text-xl md:text-2xl font-bold mb-4 text-center">Quick Access</h3>
+                    <div className="grid grid-cols-2 md:grid-cols-6 gap-3">
+                        {services.map((service) => {
+                            const Icon = service.icon;
+                            return (
+                                <Card
+                                    key={service.id}
+                                    className={`relative rounded-xl p-3 text-center cursor-pointer transition-all duration-500 overflow-hidden group border-border shadow-none ${activeTab === service.id ? "bg-primary/5 border-primary/40" : "bg-card/50 hover:bg-card hover:border-primary/20"}`}
+                                    onClick={() => {
+                                        setActiveTab(service.id);
+                                        document.querySelector(`[value="${service.id}"]`)?.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+                                    }}
+                                >
+                                    <div className={`w-8 h-8 rounded-lg mx-auto mb-2 flex items-center justify-center transition-all duration-500 ${activeTab === service.id ? "bg-primary text-primary-foreground" : "bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground shadow-sm"}`}>
+                                        <Icon className="w-4 h-4" />
+                                    </div>
+                                    <span className="text-[10px] font-bold block mb-1">{service.title}</span>
+                                    <span className="text-[8px] text-muted-foreground font-semibold uppercase tracking-wider">
+                                        From {service.startingPrice}
+                                    </span>
+                                </Card>
+                            );
+                        })}
+                    </div>
                 </div>
             </div>
         </section>

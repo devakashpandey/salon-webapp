@@ -136,17 +136,16 @@ export default function Pricing() {
 
             <div className="container relative z-10">
                 {/* Header */}
-                <div className="text-center mb-10">
-                    <Badge variant="outline" className="mb-3 rounded-full px-4 py-1.5 border-primary/20 bg-primary/5 text-primary text-[10px] tracking-widest uppercase font-bold">
+                <div className="text-center mb-8">
+                    <Badge variant="outline" className="mb-2 rounded-full px-4 py-1 border-primary/20 bg-primary/5 text-primary text-[10px] tracking-widest uppercase font-bold">
                         Transparent Pricing
                     </Badge>
-                    <h2 className="font-display text-3xl md:text-5xl font-bold mt-2 mb-4 text-center">
+                    <h2 className="font-display text-3xl md:text-4xl font-bold mt-1 mb-2 text-center">
                         Our <span className="text-gold-gradient">Pricing</span>
                     </h2>
-                    <p className="text-muted-foreground max-w-xl mx-auto text-base md:text-lg font-medium opacity-80">
+                    <p className="text-sm md:text-base text-muted-foreground max-w-lg mx-auto font-medium opacity-80">
                         Premium quality services at competitive prices. No hidden charges.
                     </p>
-                    <Separator className="w-24 mx-auto mt-6 bg-linear-to-r from-transparent via-primary to-transparent" />
                 </div>
 
                 {/* Pricing Tabs */}
@@ -176,27 +175,27 @@ export default function Pricing() {
                                     {cat.items.map((item, i) => (
                                         <div
                                             key={i}
-                                            className="flex items-center justify-between py-3 px-6 rounded-3xl bg-card/40 border border-border/10 hover:border-primary/40 hover:bg-card/80 transition-all duration-500 group shadow-sm hover:shadow-xl hover:-translate-y-1 cursor-pointer"
+                                            className="flex items-center justify-between py-2 px-6 rounded-2xl bg-card/40 border border-border/10 hover:border-primary/40 hover:bg-card/80 transition-all duration-500 group shadow-sm hover:shadow-lg hover:-translate-y-0.5 cursor-pointer"
                                         >
                                             <div className="flex items-center gap-6">
-                                                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500">
-                                                    <cat.icon className="w-6 h-6" />
+                                                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500">
+                                                    <cat.icon className="w-4 h-4" />
                                                 </div>
                                                 <div>
-                                                    <span className="text-lg font-bold text-foreground block mb-1 group-hover:text-primary transition-colors">{item.name}</span>
-                                                    <span className="text-xs text-muted-foreground font-semibold uppercase tracking-widest flex items-center gap-2">
-                                                        <Clock className="w-3 h-3 text-primary/60" />
-                                                        Duration: {item.duration}
+                                                    <span className="text-base font-bold text-foreground block mb-0.5 group-hover:text-primary transition-colors">{item.name}</span>
+                                                    <span className="text-[10px] text-muted-foreground font-semibold uppercase tracking-widest flex items-center gap-2">
+                                                        <Clock className="w-2.5 h-2.5 text-primary/60" />
+                                                        {item.duration}
                                                     </span>
                                                 </div>
                                             </div>
-                                            <div className="flex items-center gap-8">
+                                            <div className="flex items-center gap-6">
                                                 <div className="text-right">
-                                                    <span className="text-2xl font-display font-bold text-gold-gradient block">
+                                                    <span className="text-xl font-display font-bold text-gold-gradient block">
                                                         {item.price}
                                                     </span>
                                                 </div>
-                                                <Button asChild size="sm" variant="ghost" className="hidden sm:flex text-primary hover:text-primary-foreground hover:bg-primary font-black uppercase tracking-[0.2em] text-[10px] rounded-full px-6 h-10 border border-primary/20">
+                                                <Button asChild size="sm" variant="ghost" className="hidden sm:flex text-primary hover:text-primary-foreground hover:bg-primary font-bold uppercase tracking-[0.2em] text-[9px] rounded-full px-4 h-8 border border-primary/20">
                                                     <a href="#booking">Book</a>
                                                 </Button>
                                             </div>
@@ -209,27 +208,26 @@ export default function Pricing() {
                 </div>
 
                 {/* Packages */}
-                <div className="pt-10 text-center">
-                    <div className="mb-10">
-                        <Badge variant="outline" className="mb-4 rounded-full px-5 py-2 border-primary/20 bg-primary/5 text-primary text-xs tracking-widest uppercase font-black">
+                <div className="pt-8 text-center">
+                    <div className="mb-8">
+                        <Badge variant="outline" className="mb-2 rounded-full px-4 py-1 border-primary/20 bg-primary/5 text-primary text-[10px] tracking-widest uppercase font-bold">
                             Exclusive Offers
                         </Badge>
-                        <h3 className="font-display text-4xl md:text-6xl font-bold mb-4">
+                        <h3 className="font-display text-3xl md:text-5xl font-bold mb-3">
                             Special <span className="text-gold-gradient">Packages</span>
                         </h3>
-                        <p className="text-muted-foreground mb-6 max-w-2xl mx-auto text-lg md:text-xl font-medium">
-                            Experience the ultimate transformation with our artisanal value sets.
+                        <p className="text-sm md:text-base text-muted-foreground mb-7 max-w-xl mx-auto font-medium">
+                            Premium artisanal sets for your complete parlor and salon experience.
                         </p>
-                        <Separator className="w-24 mx-auto bg-linear-to-r from-transparent via-primary to-transparent" />
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-10 items-stretch max-w-7xl mx-auto">
                         {packages.map((pkg) => (
                             <Card
                                 key={pkg.name}
-                                className={`relative rounded-4xl p-8 transition-all duration-700 flex flex-col items-center text-center shadow-none border border-border/10 ${pkg.highlighted
-                                    ? "bg-card shadow-[0_30px_60px_rgba(196,160,93,0.25)] ring-1 ring-primary/30 scale-105 z-10"
-                                    : "bg-card/40 border-border/20 hover:border-primary/30 hover:shadow-2xl hover:bg-card/80"
+                                className={`relative rounded-3xl p-6 transition-all duration-700 flex flex-col items-center text-center shadow-none border border-border/10 ${pkg.highlighted
+                                    ? "bg-card shadow-primary/20 ring-1 ring-primary/30 scale-105 z-10"
+                                    : "bg-card/40 border-border/20 hover:border-primary/30 hover:shadow-xl hover:bg-card/80"
                                     }`}
                             >
                                 {pkg.highlighted && (
@@ -238,23 +236,23 @@ export default function Pricing() {
                                     </Badge>
                                 )}
 
-                                <div className="mb-6">
-                                    <h4 className="font-display text-3xl md:text-4xl font-bold mb-2">{pkg.name}</h4>
-                                    <p className="text-sm text-muted-foreground font-semibold">{pkg.description}</p>
+                                <div className="mb-4">
+                                    <h4 className="font-display text-2xl md:text-3xl font-bold mb-3">{pkg.name}</h4>
+                                    <p className="text-[10px] text-muted-foreground font-semibold uppercase tracking-[0.2em]">{pkg.description}</p>
                                 </div>
 
-                                <div className="mb-10 flex flex-col border-y border-primary/10 w-full py-6">
-                                    <span className="text-6xl font-display font-bold text-gold-gradient leading-none">
+                                <div className="mb-4 flex flex-col border-y border-primary/10 w-full py-4">
+                                    <span className="text-4xl md:text-5xl font-display font-bold text-gold-gradient leading-none">
                                         {pkg.price}
                                     </span>
-                                    <span className="text-muted-foreground text-[10px] uppercase tracking-[0.3em] font-black mt-4">All-Inclusive Set</span>
+                                    <span className="text-muted-foreground text-[8px] uppercase tracking-[0.3em] font-bold mt-2">All-Inclusive Set</span>
                                 </div>
 
-                                <ul className="space-y-4 mb-10 w-full text-left">
+                                <ul className="space-y-2 mb-6 w-full text-left">
                                     {pkg.features.map((f, i) => (
-                                        <li key={i} className="flex items-center gap-4 text-sm font-bold text-foreground/90 group/li">
-                                            <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center shrink-0 group-hover/li:bg-primary transition-colors">
-                                                <Check className="w-3 h-3 text-primary group-hover/li:text-primary-foreground" />
+                                        <li key={i} className="flex items-center gap-3 text-xs font-semibold text-foreground/90 group/li">
+                                            <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center shrink-0 group-hover/li:bg-primary transition-colors">
+                                                <Check className="w-2.5 h-2.5 text-primary group-hover/li:text-primary-foreground" />
                                             </div>
                                             {f}
                                         </li>
@@ -263,7 +261,7 @@ export default function Pricing() {
 
                                 <Button
                                     asChild
-                                    className={`mt-auto w-full h-16 rounded-full tracking-[0.3em] uppercase text-[10px] font-black transition-all duration-500 cursor-pointer ${pkg.highlighted
+                                    className={`mt-auto w-full h-14 rounded-none tracking-[0.3em] uppercase text-[10px] font-bold transition-all duration-500 cursor-pointer ${pkg.highlighted
                                         ? "bg-linear-to-br from-primary to-gold-dark text-primary-foreground shadow-2xl hover:scale-[1.02]"
                                         : "border-primary/40 border-2 text-primary hover:bg-primary hover:text-primary-foreground bg-transparent"
                                         }`}

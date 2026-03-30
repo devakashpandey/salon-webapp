@@ -13,26 +13,53 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
 import { ModeToggle } from "@/components/mode-toggle";
+import { 
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+} from "@/components/ui/tooltip";
 
-const navLinks = [
-    { label: "Services", href: "#services" },
-    { label: "About", href: "#about" },
-    { label: "Gallery", href: "#gallery" },
-    { label: "Pricing", href: "#pricing" },
-    { label: "Testimonials", href: "#testimonials" },
-    { label: "Contact", href: "#contact" },
+const themes = [
+    { id: "luxe-gold", color: "#c9a96e", label: "Luxe Gold" },
+    { id: "rose-elegance", color: "#d69f7e", label: "Rose Elegance" },
+    { id: "emerald-velvet", color: "#2d6a4f", label: "Emerald Velvet" },
+    { id: "royal-silver", color: "#6c757d", label: "Royal Silver" },
+    { id: "midnight-glow", color: "#5a189a", label: "Midnight Glow" },
 ];
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
+    const [currentTheme, setCurrentTheme] = useState("luxe-gold");
+
+    const navLinks = [
+        { label: "Services", href: "#services" },
+        { label: "About", href: "#about" },
+        { label: "Gallery", href: "#gallery" },
+        { label: "Pricing", href: "#pricing" },
+        { label: "Testimonials", href: "#testimonials" },
+        { label: "Contact", href: "#contact" },
+    ];
 
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 20);
         };
         window.addEventListener("scroll", handleScroll);
+        
+        // Initial theme from LS or default
+        const savedTheme = localStorage.getItem("salon-theme") || "luxe-gold";
+        setCurrentTheme(savedTheme);
+        document.documentElement.setAttribute('data-theme', savedTheme);
+
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
+
+    const toggleTheme = (val: string) => {
+        setCurrentTheme(val);
+        document.documentElement.setAttribute('data-theme', val);
+        localStorage.setItem("salon-theme", val);
+    };
 
     return (
         <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? "bg-background/95 backdrop-blur-md border-b border-border py-3 shadow-lg" : "bg-transparent py-5"}`}>
@@ -47,7 +74,7 @@ export default function Navbar() {
                             LUXE
                         </span>
                         <span className={`block text-[8px] md:text-[10px] tracking-[0.3em] uppercase -mt-1 font-medium transition-colors duration-500 ${isScrolled ? "text-muted-foreground" : "text-white/60"}`}>
-                            Salon & Spa
+                            Salon & Parlor
                         </span>
                     </div>
                 </a>
@@ -66,10 +93,30 @@ export default function Navbar() {
                 </nav>
 
                 {/* desktop CTA */}
-                <div className="hidden lg:flex items-center gap-4">
+                <div className="hidden lg:flex items-center gap-6">
+                    <TooltipProvider>
+                        <div className="flex items-center gap-2 bg-card/30 backdrop-blur-md rounded-full px-3 py-1.5 border border-border/20">
+                            {themes.map((t) => (
+                                <Tooltip key={t.id}>
+                                    <TooltipTrigger asChild>
+                                        <button
+                                            onClick={() => toggleTheme(t.id)}
+                                            className={`w-4 h-4 rounded-full border border-white/20 transition-all duration-300 hover:scale-125 cursor-pointer ${currentTheme === t.id ? "ring-2 ring-primary ring-offset-2 ring-offset-background scale-110" : "opacity-60 hover:opacity-100"
+                                                }`}
+                                            style={{ backgroundColor: t.color }}
+                                            aria-label={`Switch to ${t.label} theme`}
+                                        />
+                                    </TooltipTrigger>
+                                    <TooltipContent className="bg-background border-border text-[10px] font-bold uppercase tracking-widest px-3 py-1.5">
+                                        {t.label}
+                                    </TooltipContent>
+                                </Tooltip>
+                            ))}
+                        </div>
+                    </TooltipProvider>
                     <ModeToggle />
-                    <Button asChild className="bg-linear-to-br from-primary to-gold-dark hover:from-gold-dark hover:to-primary text-primary-foreground border-none rounded-full px-6 shadow-lg transform active:scale-95 transition-all cursor-pointer">
-                        <a href="#booking">
+                    <Button asChild className="bg-linear-to-br from-primary to-gold-dark hover:from-gold-dark hover:to-primary text-primary-foreground border-none rounded-full px-6 shadow-lg transform active:scale-95 transition-all cursor-pointer h-10">
+                        <a href="#booking" className="flex items-center gap-2">
                             <Calendar className="w-4 h-4" />
                             Book Now
                         </a>
@@ -97,6 +144,23 @@ export default function Navbar() {
                                             <span className="text-xl font-display font-bold tracking-wider text-gold-gradient">LUXE</span>
                                         </div>
                                     </header>
+                                    
+                                    {/* Mobile Theme Selector */}
+                                    <div className="mb-6">
+                                        <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground block mb-3">Choose Aesthetic</span>
+                                        <div className="flex items-center gap-3">
+                                            {themes.map((t) => (
+                                                <button
+                                                    key={t.id}
+                                                    onClick={() => toggleTheme(t.id)}
+                                                    className={`w-8 h-8 rounded-full border border-border/20 transition-all cursor-pointer ${currentTheme === t.id ? "ring-2 ring-primary ring-offset-2 ring-offset-background" : "opacity-60"
+                                                        }`}
+                                                    style={{ backgroundColor: t.color }}
+                                                />
+                                            ))}
+                                        </div>
+                                    </div>
+                                    
                                     <Separator className="bg-border/50" />
                                 </div>
 
@@ -120,7 +184,7 @@ export default function Navbar() {
                                             Experience world-class grooming in the heart of Bangalore.
                                         </p>
                                     </div>
-                                    <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90 h-16 rounded-none uppercase tracking-widest font-bold">
+                                    <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90 h-14 rounded-none uppercase tracking-widest font-bold">
                                         <a href="#booking">Book Appointment</a>
                                     </Button>
                                 </div>

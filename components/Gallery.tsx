@@ -50,21 +50,20 @@ export default function Gallery() {
 
             <div className="container relative z-10">
                 {/* Header */}
-                <div className="text-center mb-16 md:mb-24">
-                    <Badge variant="outline" className="mb-4 rounded-full px-5 py-2 border-primary/20 bg-primary/5 text-primary text-xs tracking-widest uppercase font-black">
+                <div className="text-center mb-8">
+                    <Badge variant="outline" className="mb-2 rounded-full px-4 py-1 border-primary/20 bg-primary/5 text-primary text-[10px] tracking-widest uppercase font-bold">
                         Our Portfolio
                     </Badge>
-                    <h2 className="font-display text-4xl md:text-6xl font-bold mt-4 mb-6">
+                    <h2 className="font-display text-3xl md:text-5xl font-bold mt-2 mb-2 text-center">
                         Style <span className="text-gold-gradient">Gallery</span>
                     </h2>
-                    <p className="text-muted-foreground max-w-2xl mx-auto text-lg md:text-xl font-medium">
+                    <p className="text-sm md:text-base text-muted-foreground max-w-lg mx-auto font-medium opacity-80">
                         A glimpse into the stunning transformations crafted by our expert team.
                     </p>
-                    <Separator className="w-24 mx-auto mt-8 bg-linear-to-r from-transparent via-primary to-transparent" />
                 </div>
 
                 {/* Filter Bar */}
-                <div className="flex flex-wrap justify-center gap-4 mb-16">
+                <div className="flex flex-wrap justify-center gap-3 mb-10">
                     {categories.map((cat) => {
                         const Icon = cat.icon;
                         return (
@@ -72,12 +71,12 @@ export default function Gallery() {
                                 key={cat.id}
                                 onClick={() => setFilter(cat.id)}
                                 variant={filter === cat.id ? "default" : "outline"}
-                                className={`rounded-full px-6 md:px-8 py-5 md:py-6 text-xs md:text-sm font-bold tracking-widest uppercase transition-all duration-500 cursor-pointer ${filter === cat.id
-                                    ? "bg-primary text-primary-foreground shadow-[0_10px_25px_rgba(196,160,93,0.4)] scale-105"
+                                className={`rounded-full px-5 md:px-6 py-4 md:py-5 text-[10px] md:text-xs font-bold tracking-widest uppercase transition-all duration-500 cursor-pointer ${filter === cat.id
+                                    ? "bg-primary text-primary-foreground shadow-lg scale-105"
                                     : "bg-background/50 border-border text-muted-foreground hover:border-primary/40 hover:text-primary hover:bg-primary/5"
                                     }`}
                             >
-                                <Icon className="w-4 h-4 mr-2" />
+                                <Icon className="w-3 h-3 mr-2" />
                                 <span className="inline-block">{cat.label}</span>
                             </Button>
                         );

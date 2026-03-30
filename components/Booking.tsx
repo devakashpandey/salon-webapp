@@ -63,7 +63,7 @@ export default function Booking() {
                         Booking <span className="text-gold-gradient">Confirmed!</span>
                     </h2>
                     <p className="text-muted-foreground text-xl mb-12 font-medium">
-                        Thank you for choosing Luxe Salon & Spa. We&apos;ve sent a confirmation
+                        Thank you for choosing Luxe Salon & Parlor. We&apos;ve sent a confirmation
                         to your phone. Prepare for your transformation!
                     </p>
                     <div className="bg-primary/5 rounded-3xl p-8 mb-12 border border-primary/10">
@@ -81,7 +81,7 @@ export default function Booking() {
                             setSelectedTime("");
                             setFormData({ name: "", phone: "", email: "", notes: "" });
                         }}
-                        className="border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-none tracking-[0.2em] uppercase text-xs font-black px-12 h-16"
+                        className="border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-none tracking-[0.2em] uppercase text-xs font-bold px-12 h-14"
                     >
                         Book Another Appointment
                     </Button>
@@ -96,17 +96,16 @@ export default function Booking() {
 
             <div className="container relative z-10">
                 {/* Header */}
-                <div className="text-center mb-10">
-                    <Badge variant="outline" className="mb-4 rounded-full px-5 py-2 border-primary/30 bg-primary/5 text-primary text-xs tracking-widest uppercase font-black">
+                <div className="text-center mb-8">
+                    <Badge variant="outline" className="mb-2 rounded-full px-4 py-1 border-primary/30 bg-primary/5 text-primary text-[10px] tracking-widest uppercase font-bold">
                         Reserve Your Experience
                     </Badge>
-                    <h2 className="font-display text-4xl md:text-6xl font-bold mt-4 mb-6 text-center">
+                    <h2 className="font-display text-3xl md:text-5xl font-bold mt-2 mb-2 text-center">
                         Book <span className="text-gold-gradient">An Appointment</span>
                     </h2>
-                    <p className="text-muted-foreground max-w-xl mx-auto text-lg md:text-xl font-medium">
+                    <p className="text-sm md:text-base text-muted-foreground max-w-lg mx-auto font-medium">
                         Take the first step towards your perfect look.
                     </p>
-                    <Separator className="w-24 mx-auto mt-8 bg-linear-to-r from-transparent via-primary to-transparent" />
                 </div>
 
                 {/* Progress Bar */}
@@ -138,28 +137,28 @@ export default function Booking() {
                             {/* Step 1: Select Service */}
                             {step === 1 && (
                                 <div className="animate-in fade-in slide-in-from-right-4 duration-500">
-                                    <h3 className="font-display text-3xl font-bold mb-10 text-center">Choose Your Transformation</h3>
-                                    <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+                                    <h3 className="font-display text-2xl font-bold mb-8 text-center">Choose Your Transformation</h3>
+                                    <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                                         {serviceOptions.map((svc) => {
                                             const Icon = svc.icon;
                                             return (
                                                 <button
                                                     key={svc.label}
                                                     onClick={() => setSelectedService(svc.label)}
-                                                    className={`p-6 rounded-3xl border text-center transition-all duration-500 cursor-pointer group ${selectedService === svc.label
+                                                    className={`p-4 rounded-2xl border text-center transition-all duration-500 cursor-pointer group ${selectedService === svc.label
                                                         ? "border-primary bg-primary/5 ring-1 ring-primary/20"
                                                         : "border-border/50 bg-background/20 hover:border-primary/30"
                                                         }`}
                                                 >
                                                     <div
-                                                        className={`w-14 h-14 rounded-2xl mx-auto mb-4 flex items-center justify-center transition-all duration-500 ${selectedService === svc.label
+                                                        className={`w-10 h-10 rounded-xl mx-auto mb-3 flex items-center justify-center transition-all duration-500 ${selectedService === svc.label
                                                             ? "bg-primary text-primary-foreground rotate-3"
                                                             : "bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground group-hover:rotate-3 shadow-sm"
                                                             }`}
                                                     >
-                                                        <Icon className="w-8 h-8" />
+                                                        <Icon className="w-5 h-5" />
                                                     </div>
-                                                    <span className="text-sm font-black uppercase tracking-wider">{svc.label}</span>
+                                                    <span className="text-[10px] font-bold uppercase tracking-wider">{svc.label}</span>
                                                 </button>
                                             );
                                         })}
@@ -169,7 +168,7 @@ export default function Booking() {
                                             size="lg"
                                             onClick={() => selectedService && setStep(2)}
                                             disabled={!selectedService}
-                                            className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-none tracking-[0.2em] uppercase text-xs font-black px-12 h-16 shadow-2xl disabled:opacity-50"
+                                            className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-none tracking-[0.2em] uppercase text-xs font-bold px-12 h-14 shadow-2xl disabled:opacity-50"
                                         >
                                             Continue
                                             <ArrowRight className="w-4 h-4 ml-2" />
@@ -219,7 +218,7 @@ export default function Booking() {
                                             size="lg"
                                             onClick={() => selectedStylist && setStep(3)}
                                             disabled={!selectedStylist}
-                                            className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-none tracking-[0.2em] uppercase text-xs font-black px-12 h-16 shadow-2xl disabled:opacity-50"
+                                            className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-none tracking-[0.2em] uppercase text-xs font-bold px-12 h-14 shadow-2xl disabled:opacity-50"
                                         >
                                             Continue
                                             <ArrowRight className="w-4 h-4 ml-2" />
@@ -244,7 +243,7 @@ export default function Booking() {
                                                 value={selectedDate}
                                                 onChange={(e) => setSelectedDate(e.target.value)}
                                                 min={new Date().toISOString().split("T")[0]}
-                                                className="bg-background border-border h-16 rounded-2xl px-6 font-bold"
+                                                className="bg-background border-border h-12 rounded-none px-6 font-medium"
                                             />
                                         </div>
 
@@ -321,27 +320,27 @@ export default function Booking() {
                                             placeholder="Your Full Name"
                                             value={formData.name}
                                             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                            className="bg-background border-border h-16 rounded-2xl px-6 font-bold"
+                                            className="bg-background border-border h-12 rounded-none px-6 font-medium"
                                         />
                                         <Input
                                             required
                                             placeholder="Phone Number"
                                             value={formData.phone}
                                             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                                            className="bg-background border-border h-16 rounded-2xl px-6 font-bold"
+                                            className="bg-background border-border h-12 rounded-none px-6 font-medium"
                                         />
                                     </div>
                                     <Input
                                         placeholder="Email Address (Optional)"
                                         value={formData.email}
                                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                        className="bg-background border-border h-16 rounded-2xl px-6 font-bold mb-6"
+                                        className="bg-background border-border h-12 rounded-none px-6 font-medium mb-6"
                                     />
                                     <Textarea
                                         placeholder="Any special requests or details..."
                                         value={formData.notes}
                                         onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                                        className="bg-background border-border rounded-2xl p-6 font-bold mb-8 min-h-[100px]"
+                                        className="bg-background border-border rounded-none p-6 font-medium mb-8 min-h-[100px]"
                                     />
 
                                     {/* Payment Section Note */}
@@ -366,7 +365,7 @@ export default function Booking() {
                                         <Button
                                             type="submit"
                                             size="lg"
-                                            className="bg-linear-to-br from-primary to-gold-dark text-primary-foreground hover:opacity-90 rounded-none tracking-[0.2em] uppercase text-xs font-black px-12 h-16 shadow-2xl"
+                                            className="bg-linear-to-br from-primary to-gold-dark text-primary-foreground hover:opacity-90 rounded-none tracking-[0.2em] uppercase text-xs font-bold px-12 h-14 shadow-2xl"
                                         >
                                             Pay & Confirm
                                             <Check className="w-5 h-5 ml-2" />

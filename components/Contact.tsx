@@ -20,23 +20,22 @@ export default function Contact() {
 
             <div className="container relative z-10">
                 {/* Header */}
-                <div className="text-center mb-10">
-                    <Badge variant="outline" className="mb-4 rounded-full px-5 py-2 border-primary/30 bg-primary/5 text-primary text-xs tracking-widest uppercase font-black">
+                <div className="text-center mb-8">
+                    <Badge variant="outline" className="mb-2 rounded-full px-4 py-1 border-primary/30 bg-primary/5 text-primary text-[10px] tracking-widest uppercase font-bold">
                         Get In Touch
                     </Badge>
-                    <h2 className="font-display text-4xl md:text-6xl font-bold mt-4 mb-4 text-center">
+                    <h2 className="font-display text-3xl md:text-4xl font-bold mt-2 mb-2 text-center">
                         Connect <span className="text-gold-gradient">With Us</span>
                     </h2>
-                    <p className="text-muted-foreground max-w-xl mx-auto text-lg md:text-xl font-medium">
+                    <p className="text-sm md:text-base text-muted-foreground max-w-lg mx-auto font-medium">
                         We&apos;re here to answer your questions and help you book your experience.
                     </p>
-                    <Separator className="w-24 mx-auto mt-6 bg-linear-to-r from-transparent via-primary to-transparent" />
                 </div>
 
                 <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
                     {/* Left Side: Contact Info */}
                     <div className="space-y-8">
-                        <div className="grid sm:grid-cols-2 gap-8">
+                        <div className="grid sm:grid-cols-2 gap-6">
                             {[
                                 { icon: MapPin, title: "Our Location", content: "Premium Boulevard, MG Road, Bangalore, India 560001", link: "#", linkText: "Get Directions" },
                                 { icon: Phone, title: "Phone Support", content: "+91 98765 43210\n+91 80 4455 6677", link: "tel:+919876543210", linkText: "Call Now" },
@@ -45,17 +44,17 @@ export default function Contact() {
                             ].map((item, i) => {
                                 const Icon = item.icon;
                                 return (
-                                    <div key={i} className="flex flex-col gap-4">
-                                        <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center shadow-sm">
-                                            <Icon className="w-6 h-6 text-primary" />
+                                    <div key={i} className="flex flex-col gap-3">
+                                        <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shadow-sm">
+                                            <Icon className="w-4 h-4 text-primary" />
                                         </div>
                                         <div>
-                                            <h4 className="font-display text-xl font-bold mb-2 uppercase tracking-wide">{item.title}</h4>
-                                            <p className="text-muted-foreground text-sm font-medium leading-relaxed whitespace-pre-line mb-3">
+                                            <h4 className="font-display text-lg font-bold mb-1 uppercase tracking-wide">{item.title}</h4>
+                                            <p className="text-muted-foreground text-[11px] font-medium leading-relaxed whitespace-pre-line mb-1.5">
                                                 {item.content}
                                             </p>
-                                            <a href={item.link} className="text-xs font-black uppercase tracking-widest text-primary hover:text-gold-light transition-colors inline-flex items-center gap-2">
-                                                {item.linkText} <ExternalLink className="w-3 h-3" />
+                                            <a href={item.link} className="text-[10px] font-bold uppercase tracking-widest text-primary hover:text-gold-light transition-colors inline-flex items-center gap-2">
+                                                {item.linkText} <ExternalLink className="w-2.5 h-2.5" />
                                             </a>
                                         </div>
                                     </div>
@@ -78,11 +77,11 @@ export default function Contact() {
 
                         {/* Socials */}
                         <div>
-                            <h4 className="text-sm font-black uppercase tracking-[0.3em] text-muted-foreground mb-6">Stay Connected</h4>
-                            <div className="flex gap-4">
+                            <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] text-muted-foreground mb-4">Stay Connected</h4>
+                            <div className="flex gap-3">
                                 {[Instagram, Facebook, Youtube].map((Icon, i) => (
-                                    <Button key={i} variant="outline" size="icon" className="w-14 h-14 rounded-2xl border-border bg-card/60 hover:bg-primary hover:text-primary-foreground transition-all duration-300">
-                                        <Icon className="w-6 h-6" />
+                                    <Button key={i} variant="outline" size="icon" className="w-10 h-10 rounded-xl border-border bg-card/60 hover:bg-primary hover:text-primary-foreground transition-all duration-300">
+                                        <Icon className="w-4 h-4" />
                                     </Button>
                                 ))}
                             </div>
@@ -91,11 +90,11 @@ export default function Contact() {
 
                     {/* Right Side: Contact Form */}
                     <div>
-                        <Card className="bg-card/60 backdrop-blur-xl border-border rounded-4xl p-8 md:p-10 shadow-none">
+                        <Card className="bg-card/60 backdrop-blur-xl border-border rounded-3xl p-6 md:p-8 shadow-none">
                             <CardContent className="p-0">
                                 <div className="mb-6 text-center">
-                                    <h3 className="font-display text-3xl font-bold mb-4">Send a Message</h3>
-                                    <p className="text-muted-foreground font-medium">Fill out the form below and we&apos;ll get back to you.</p>
+                                    <h3 className="font-display text-2xl font-bold mb-2">Send a Message</h3>
+                                    <p className="text-xs text-muted-foreground font-medium">Fill out the form below and we&apos;ll get back to you.</p>
                                 </div>
 
                                 {formSent ? (
@@ -119,36 +118,36 @@ export default function Contact() {
                                         }}
                                         className="space-y-6"
                                     >
-                                        <div className="grid md:grid-cols-2 gap-6">
+                                        <div className="grid md:grid-cols-2 gap-4">
                                             <Input
                                                 required
                                                 placeholder="Your Name"
-                                                className="bg-background border-border h-16 rounded-2xl px-6 font-bold"
+                                                className="bg-transparent border-b-2 border-border focus:border-primary px-0 font-medium"
                                             />
                                             <Input
                                                 required
                                                 type="tel"
                                                 placeholder="Phone Number"
-                                                className="bg-background border-border h-16 rounded-2xl px-6 font-bold"
+                                                className="bg-transparent border-b-2 border-border focus:border-primary px-0 font-medium"
                                             />
                                         </div>
                                         <Input
                                             required
                                             type="email"
                                             placeholder="Email Address"
-                                            className="bg-background border-border h-16 rounded-2xl px-6 font-bold"
+                                            className="bg-transparent border-b-2 border-border focus:border-primary px-0 font-medium"
                                         />
                                         <Textarea
                                             required
                                             placeholder="How can we help you?"
-                                            className="bg-background border-border rounded-2xl p-6 font-bold min-h-[160px]"
+                                            className="bg-transparent border-b-2 border-border focus:border-primary px-0 font-medium min-h-[100px]"
                                         />
                                         <Button
                                             type="submit"
-                                            className="w-full bg-primary text-primary-foreground hover:bg-primary/90 h-16 rounded-none tracking-[0.2em] uppercase text-xs font-black shadow-2xl transition-all duration-300 hover:-translate-y-1"
+                                            className="w-full bg-primary text-primary-foreground hover:bg-primary/90 h-12 rounded-none tracking-[0.2em] uppercase text-[10px] font-bold shadow-2xl transition-all duration-300 hover:-translate-y-1"
                                         >
                                             Process Inquiry
-                                            <Send className="w-5 h-5 ml-3" />
+                                            <Send className="w-4 h-4 ml-3" />
                                         </Button>
                                     </form>
                                 )}
@@ -158,16 +157,16 @@ export default function Contact() {
                         {/* Quick WhatsApp CTA */}
                         <a
                             href="https://wa.me/919876543210"
-                            className="mt-8 flex items-center justify-center gap-4 p-8 rounded-[2.5rem] bg-[#25D366]/10 border border-[#25D366]/20 group transition-all duration-500 hover:bg-[#25D366]/20"
+                            className="mt-6 flex items-center justify-center gap-4 p-5 rounded-3xl bg-[#25D366]/10 border border-[#25D366]/20 group transition-all duration-500 hover:bg-[#25D366]/20"
                         >
-                            <div className="w-12 h-12 rounded-full bg-[#25D366] flex items-center justify-center text-white shadow-xl shadow-[#25D366]/20">
-                                <MessageSquare className="w-7 h-7" />
+                            <div className="w-10 h-10 rounded-full bg-[#25D366] flex items-center justify-center text-white shadow-xl shadow-[#25D366]/20">
+                                <MessageSquare className="w-5 h-5" />
                             </div>
                             <div className="text-left">
-                                <span className="block text-[10px] font-black uppercase tracking-widest text-[#25D366]">Chat on WhatsApp</span>
-                                <span className="block text-lg font-bold">Instant Support Available</span>
+                                <span className="block text-[8px] font-bold uppercase tracking-widest text-[#25D366]">Chat on WhatsApp</span>
+                                <span className="block text-base font-bold">Instant Support Available</span>
                             </div>
-                            <ArrowRight className="w-5 h-5 ml-auto text-[#25D366] transition-transform group-hover:translate-x-2" />
+                            <ArrowRight className="w-4 h-4 ml-auto text-[#25D366] transition-transform group-hover:translate-x-2" />
                         </a>
                     </div>
                 </div>

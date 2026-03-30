@@ -6,21 +6,8 @@
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-border: var(--border);
-  --color-ring: var(--ring);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-destructive: var(--destructive);
-
-  --color-gold: #c9a96e;
-  --color-gold-light: #e8d5a3;
-  --color-gold-dark: #a8873c;
+  --color-gold-light: var(--gold-light);
+  --color-gold-dark: var(--gold-dark);
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -75,8 +62,18 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Lato', sans-serif;
     overflow-x: hidden;
+  }
+}
+
+@layer components {
+  .input-sleek {
+    @apply h-11 border-border/40 bg-background/50 px-4 text-sm transition-all focus:border-primary focus:ring-1 focus:ring-primary/20;
+  }
+  
+  .btn-premium {
+    @apply inline-flex items-center justify-center px-8 py-3 text-sm font-medium tracking-wide uppercase transition-all hover:bg-primary/90 active:scale-95;
   }
 }
 
@@ -86,7 +83,7 @@
   }
 
   .text-gold-gradient {
-    background: linear-gradient(135deg, #c9a96e 0%, #e8d5a3 40%, #c9a96e 60%, #a8873c 100%);
+    background: var(--gold-gradient, linear-gradient(135deg, #c9a96e 0%, #e8d5a3 40%, #c9a96e 60%, #a8873c 100%));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -97,8 +94,95 @@
   }
   
   .section-padding {
-    @apply py-12 lg:py-16;
+    @apply py-8 lg:py-12;
   }
+}
+
+/* Theme Presets */
+:root[data-theme="luxe-gold"] {
+  --primary: #c9a96e;
+  --primary-foreground: #080808;
+  --gold-light: #e8d5a3;
+  --gold-dark: #a8873c;
+  --background: #fdfcf9;
+  --card: #ffffff;
+  --border: rgba(201, 169, 110, 0.2);
+  --gold-gradient: linear-gradient(135deg, #c9a96e 0%, #e8d5a3 40%, #c9a96e 60%, #a8873c 100%);
+}
+
+:root[data-theme="rose-elegance"] {
+  --primary: #d69f7e;
+  --primary-foreground: #ffffff;
+  --gold-light: #eddcd2;
+  --gold-dark: #b07d62;
+  --background: #fffafa;
+  --card: #fffcfc;
+  --border: rgba(214, 159, 126, 0.2);
+  --gold-gradient: linear-gradient(135deg, #d69f7e 0%, #eddcd2 100%);
+}
+
+:root[data-theme="emerald-velvet"] {
+  --primary: #2d6a4f;
+  --primary-foreground: #ffffff;
+  --gold-light: #74c69d;
+  --gold-dark: #1b4332;
+  --background: #f7f9f7;
+  --card: #ffffff;
+  --border: rgba(45, 106, 79, 0.2);
+  --gold-gradient: linear-gradient(135deg, #2d6a4f 0%, #74c69d 40%, #2d6a4f 60%, #1b4332 100%);
+}
+
+:root[data-theme="royal-silver"] {
+  --primary: #6c757d;
+  --primary-foreground: #ffffff;
+  --gold-light: #dee2e6;
+  --gold-dark: #343a40;
+  --background: #f8f9fa;
+  --card: #ffffff;
+  --border: rgba(108, 117, 125, 0.2);
+  --gold-gradient: linear-gradient(135deg, #6c757d 0%, #dee2e6 40%, #6c757d 60%, #343a40 100%);
+}
+
+:root[data-theme="midnight-glow"] {
+  --primary: #5a189a;
+  --primary-foreground: #ffffff;
+  --gold-light: #c77dff;
+  --gold-dark: #3c096c;
+  --background: #faf8ff;
+  --card: #ffffff;
+  --border: rgba(90, 24, 154, 0.2);
+  --gold-gradient: linear-gradient(135deg, #5a189a 0%, #c77dff 40%, #5a189a 60%, #3c096c 100%);
+}
+
+/* Dark Mode Overrides */
+.dark:root[data-theme="luxe-gold"] {
+  --background: #080808;
+  --card: #0c0c0c;
+  --border: rgba(201, 169, 110, 0.15);
+}
+
+.dark:root[data-theme="rose-elegance"] {
+  --background: #1a1515;
+  --card: #201b1b;
+  --border: rgba(222, 171, 144, 0.15);
+}
+
+.dark:root[data-theme="emerald-velvet"] {
+  --background: #0d1a15;
+  --card: #12241d;
+  --border: rgba(64, 145, 108, 0.15);
+}
+
+.dark:root[data-theme="royal-silver"] {
+  --background: #15181a;
+  --card: #1c2022;
+  --border: rgba(173, 181, 189, 0.15);
+}
+
+.dark:root[data-theme="midnight-glow"] {
+  --background: #120a1d;
+  --card: #190e29;
+  --border: rgba(157, 78, 221, 0.15);
 }
 
 /* ===== GLOBAL RESETS ===== */

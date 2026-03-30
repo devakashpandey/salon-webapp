@@ -50,40 +50,40 @@ export default function Transformations() {
     return (
         <section id="transformations" className="section-padding bg-background relative overflow-hidden">
             <div className="container relative z-10">
-                <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
                     <div>
-                        <Badge variant="outline" className="mb-4 rounded-full px-5 py-2 border-primary/30 bg-primary/5 text-primary text-xs tracking-widest uppercase font-black">
+                        <Badge variant="outline" className="mb-2 rounded-full px-4 py-1 border-primary/30 bg-primary/5 text-primary text-[10px] tracking-widest uppercase font-bold">
                             Real Results
                         </Badge>
-                        <h2 className="font-display text-4xl md:text-6xl font-bold">
+                        <h2 className="font-display text-3xl md:text-5xl font-bold">
                             Signature <span className="text-gold-gradient">Transformations</span>
                         </h2>
                     </div>
-                    <p className="text-muted-foreground max-w-md text-lg font-medium">
-                        Witness the artistry of our master stylists through these real before-and-after results.
+                    <p className="text-muted-foreground max-w-sm text-sm md:text-base font-medium opacity-80">
+                        Witness the artistry of our master stylists through these real results.
                     </p>
                 </div>
 
                 <div className="grid lg:grid-cols-12 gap-12 items-center">
                     {/* List Side */}
-                    <div className="lg:col-span-4 space-y-4">
+                    <div className="lg:col-span-4 space-y-3">
                         {transformations.map((t, idx) => (
                             <button
                                 key={t.id}
                                 onClick={() => setActiveIndex(idx)}
-                                className={`w-full text-left p-6 rounded-3xl border transition-all duration-500 group ${activeIndex === idx
-                                    ? "bg-primary/5 border-primary shadow-xl ring-1 ring-primary/20"
+                                className={`w-full text-left p-4 rounded-2xl border transition-all duration-500 group ${activeIndex === idx
+                                    ? "bg-primary/5 border-primary shadow-lg ring-1 ring-primary/20"
                                     : "bg-card/50 border-border hover:border-primary/30"
                                     }`}
                             >
-                                <div className="flex items-center gap-4 mb-3">
-                                    <div className={`p-2 rounded-xl transition-colors ${activeIndex === idx ? "bg-primary text-primary-foreground" : "bg-primary/10 text-primary"}`}>
-                                        {idx === 0 ? <Scissors className="w-5 h-5" /> : idx === 1 ? <Sparkles className="w-5 h-5" /> : <Wand2 className="w-5 h-5" />}
+                                <div className="flex items-center gap-3 mb-2">
+                                    <div className={`p-1.5 rounded-lg transition-colors ${activeIndex === idx ? "bg-primary text-primary-foreground" : "bg-primary/10 text-primary"}`}>
+                                        {idx === 0 ? <Scissors className="w-4 h-4" /> : idx === 1 ? <Sparkles className="w-4 h-4" /> : <Wand2 className="w-4 h-4" />}
                                     </div>
-                                    <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">{t.category}</span>
+                                    <span className="text-[9px] font-bold uppercase tracking-widest text-muted-foreground">{t.category}</span>
                                 </div>
-                                <h3 className={`text-xl font-bold mb-2 transition-colors ${activeIndex === idx ? "text-primary" : "text-foreground"}`}>{t.title}</h3>
-                                <p className="text-sm text-muted-foreground line-clamp-2">{t.description}</p>
+                                <h3 className={`text-lg font-bold mb-1 transition-colors ${activeIndex === idx ? "text-primary" : "text-foreground"}`}>{t.title}</h3>
+                                <p className="text-xs text-muted-foreground line-clamp-2">{t.description}</p>
                             </button>
                         ))}
                     </div>

@@ -37,7 +37,7 @@ export default function Footer() {
                     <p className="text-muted-foreground text-lg md:text-xl mb-12 max-w-2xl mx-auto font-medium">
                         Book your appointment today and let our experts craft your perfect look.
                     </p>
-                    <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-none tracking-[0.2em] uppercase text-xs font-black px-12 h-16 hover:-translate-y-1 transition-all duration-300 shadow-[0_15px_40px_rgba(201,169,110,0.3)]">
+                    <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-none tracking-[0.2em] uppercase text-xs font-bold px-12 h-14 hover:-translate-y-1 transition-all duration-300 shadow-[0_15px_40px_rgba(201,169,110,0.3)]">
                         <a href="#booking" className="flex items-center gap-3">
                             <Calendar className="w-5 h-5" />
                             Book Appointment
@@ -59,8 +59,8 @@ export default function Footer() {
                                 <span className="text-2xl font-display font-bold tracking-wider text-gold-gradient">
                                     LUXE
                                 </span>
-                                <span className="block text-[10px] tracking-[0.4em] text-muted-foreground uppercase -mt-1 font-black">
-                                    Salon & Spa
+                                <span className="block text-[10px] tracking-[0.4em] text-muted-foreground uppercase -mt-1 font-bold">
+                                    Salon & Parlor
                                 </span>
                             </div>
                         </div>
@@ -146,7 +146,7 @@ export default function Footer() {
             <div className="border-t border-border/50">
                 <div className="container py-8 flex flex-col items-center justify-center">
                     <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest text-center">
-                        © {new Date().getFullYear()} Luxe Salon & Spa. Crafted with Excellence.
+                        © {new Date().getFullYear()} Luxe Salon & Parlor. Crafted with Excellence.
                     </p>
                 </div>
             </div>

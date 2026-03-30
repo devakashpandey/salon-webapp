@@ -15,40 +15,37 @@ export default function About() {
                 <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
                     {/* Left: Content */}
                     <div className="order-2 lg:order-1 text-left">
-                        <Badge variant="outline" className="mb-6 rounded-full px-5 py-2 border-primary/20 bg-primary/5 text-primary text-xs tracking-widest uppercase font-bold">
+                        <Badge variant="outline" className="mb-4 rounded-full px-4 py-1 border-primary/20 bg-primary/5 text-primary text-[10px] tracking-widest uppercase font-bold">
                             Our Story
                         </Badge>
-                        <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                        <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
                             Crafting <span className="text-gold-gradient">Masterpieces</span> <br />
                             Since 2008
                         </h2>
-                        <p className="text-muted-foreground text-lg md:text-xl leading-relaxed mb-8 font-medium italic font-elegant">
-                            "Luxe is not just a salon, it's a sanctuary where your natural beauty
+                        <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-4 font-medium italic font-elegant">
+                            "Luxe is not just a salon and parlor, it's a sanctuary where your natural beauty
                             is enhanced through art and science."
                         </p>
-                        <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-8 font-medium">
-                            What started as a single small studio in Bangalore has grown into
-                            multiple locations across India. Our journey began with a simple
-                            vision: to create a space where beauty meets luxury, and every
-                            client feels like royalty.
+                        <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-6 font-medium">
+                            Our journey began with a simple vision: to create a space where beauty meets luxury, and every client feels like royalty.
                         </p>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                             {[
-                                { icon: Shield, title: "Hygiene First", desc: "100% sanitized tools & environment" },
-                                { icon: Heart, title: "Premium Products", desc: "Only international luxury brands" },
-                                { icon: Users, title: "Expert Staff", desc: "Global certified professionals" },
-                                { icon: Check, title: "Unisex Focus", desc: "Dedicated zones for everyone" },
+                                { icon: Shield, title: "Hygiene First", desc: "100% sanitized tools" },
+                                { icon: Heart, title: "Premium Products", desc: "Luxury brands only" },
+                                { icon: Users, title: "Expert Staff", desc: "Certified professionals" },
+                                { icon: Check, title: "Unisex Focus", desc: "Dedicated zones" },
                             ].map((item, i) => {
                                 const Icon = item.icon;
                                 return (
-                                    <div key={i} className="flex gap-4 group">
-                                        <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary transition-colors duration-300">
-                                            <Icon className="w-5 h-5 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
+                                    <div key={i} className="flex gap-3 group">
+                                        <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary transition-colors duration-300">
+                                            <Icon className="w-4 h-4 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
                                         </div>
                                         <div>
-                                            <h4 className="font-bold text-base mb-1">{item.title}</h4>
-                                            <p className="text-xs text-muted-foreground font-semibold">{item.desc}</p>
+                                            <h4 className="font-bold text-sm mb-0.5">{item.title}</h4>
+                                            <p className="text-[10px] text-muted-foreground font-semibold">{item.desc}</p>
                                         </div>
                                     </div>
                                 );
